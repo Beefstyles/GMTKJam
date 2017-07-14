@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class PlayerInput : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        HandleInput();
+    UnitBehaviour ub;
+    GameController gc;
 
+    void Start()
+    {
+        gc = FindObjectOfType<GameController>();
+    }
+	void Update ()
+    {
+        HandleInput();
     }
 
     void HandleInput()
@@ -25,9 +26,22 @@ public class PlayerInput : MonoBehaviour {
             {
                 if (hit.collider.tag == "PlayerBase")
                 {
+                    
                     Debug.Log("Hit player base");
                 }
+                if (hit.collider.tag == "Unit")
+                {
+                    ub = hit.collider.GetComponent<UnitBehaviour>();
+
+                    if(ub != null)
+                    {
+                        gc.DeselectAllUnits();
+                        ub.SelectUnit();
+                    }
+
+                }
             }
+
         }
     }
 }
