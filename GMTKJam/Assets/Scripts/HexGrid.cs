@@ -12,6 +12,8 @@ public class HexGrid : MonoBehaviour {
 	public HexCell cellPrefab;
 	public Text cellLabelPrefab;
 
+    public GameObject TestBase;
+
 	HexCell[] cells;
 
 	Canvas gridCanvas;
@@ -64,7 +66,7 @@ public class HexGrid : MonoBehaviour {
 
     void Update()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(2))
         {
             HandleInput();
         }
