@@ -14,7 +14,8 @@ public class HexMetrics : MonoBehaviour {
         new Vector3(InnerRadius, 0f, -0.5f * OuterRadius),
         new Vector3(0f, 0f, -OuterRadius),
         new Vector3(-InnerRadius, 0f, -0.5f * OuterRadius),
-        new Vector3(-InnerRadius, 0f, 0.5f * OuterRadius)
+        new Vector3(-InnerRadius, 0f, 0.5f * OuterRadius),
+        new Vector3(0F,0F,OuterRadius)
     };
     void Start () {
 		
