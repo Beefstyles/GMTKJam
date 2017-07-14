@@ -10,11 +10,9 @@ public class UnitBehaviour : MonoBehaviour {
     public bool IsSelected;
     MeshRenderer mr;
     public Material ObjectSelected, ObjectNotSelected;
-    GameController gc;
 
     void Start()
     {
-        gc = FindObjectOfType<GameController>();
         mr = GetComponent<MeshRenderer>();
         mr.material = ObjectNotSelected;
     }

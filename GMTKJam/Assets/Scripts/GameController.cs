@@ -8,18 +8,22 @@ public class GameController : MonoBehaviour {
 
     void Start ()
     {
-        StartCoroutine("DelayUnitFinding");
+        StartCoroutine("RefreshUnitArray");
     }
 
     public void DeselectAllUnits()
     {
-        foreach (var unit in unitArray)
+        if (unitArray.Length > 1)
         {
-            unit.DeSelectUnit();
+            foreach (var unit in unitArray)
+            {
+                unit.DeSelectUnit();
+            }
         }
+        
     }
 
-    IEnumerator DelayUnitFinding()
+    IEnumerator RefreshUnitArray()
     {
         yield return new WaitForSeconds(0.001F);
         unitArray = FindObjectsOfType<UnitBehaviour>();
