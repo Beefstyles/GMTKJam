@@ -33,12 +33,18 @@ public class HexGrid : MonoBehaviour {
     void CreateCell(int x, int z, int i)
     {
         Vector3 position;
-        position.x = x * 10F;
+        position.x = (x + z * 0.5F - z / 2) * (HexMetrics.InnerRadius * 2F);
         position.y = 0F;
-        position.z = z * 10F;
+        position.z = z * (HexMetrics.OuterRadius * 1.5F);
 
         HexCell cell = cells[i] = Instantiate<HexCell>(CellPrefab);
         cell.transform.SetParent(transform, false);
         cell.transform.localPosition = position;
+
+        Text label = Instantiate<Text>(CellLabelPrefab);
+        label.rectTransform.SetParent(gridCanvas.transform, false);
+        label.rectTransform.anchoredPosition =
+            new Vector2(position.x, position.z);
+        label.text = x.ToString() + "\n" + z.ToString();
     }
 }
