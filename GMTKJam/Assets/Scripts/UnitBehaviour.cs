@@ -19,9 +19,12 @@ public class UnitBehaviour : MonoBehaviour {
     {
         ut = GetComponent<ObjectInfo>().ut;
         hexGrid = FindObjectOfType<HexGrid>();
+
         gc = FindObjectOfType<GameController>();
         mr = GetComponent<MeshRenderer>();
         mr.material = ObjectNotSelected;
+        SetHexCoords();
+        AddLocationToDict();
     }
 
 	public void SelectUnit()
@@ -52,9 +55,24 @@ public class UnitBehaviour : MonoBehaviour {
 
     public void FindCellLocation()
     {
-        hexCoords = hexGrid.ReturnHexCoords(transform.position);
+        SetHexCoords();
         hexGrid.SelectedUnitCoords = hexCoords;
         hexGrid.SelectedUnit = gameObject;
+    }
+
+    private void SetHexCoords()
+    {
+        hexCoords = hexGrid.ReturnHexCoords(transform.position);
+    }
+
+    private void AddLocationToDict()
+    {
+        OverallHexCoordsDict.GameDictionary.Add(hexCoords, ut);
+    }
+
+    public void RemoveLocationFromDict()
+    {
+        OverallHexCoordsDict.GameDictionary.Remove(hexCoords);
     }
 
     void RemoveFromHexGridSelection()
