@@ -91,6 +91,18 @@ public class UnitBehaviour : MonoBehaviour {
         }
     }
 
+    public void HandleEnemyMovement()
+    {
+        if(ut == UnitTypes.Enemy)
+        {
+            StartCoroutine("EnemyControl");
+        }
+    }
+
+    IEnumerator EnemyControl()
+    {
+        yield return new WaitForSeconds(0.1F);
+    }
 
 
 

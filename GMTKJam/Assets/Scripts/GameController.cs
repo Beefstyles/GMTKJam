@@ -103,7 +103,7 @@ public class GameController : MonoBehaviour {
         }
         else
         {
-            GameObject go = Instantiate(objectToBeSpawned, location, Quaternion.identity);
+            Instantiate(objectToBeSpawned, location, Quaternion.identity);
             bc.NumberOfActionsRemaining--;
         }
         

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PoliticsTracker : MonoBehaviour {
 
+    public int PercentApprovalWH, PercentApprovalPK, PercentApprovalBalance;
+    public int PercentWH, PercentPK, PercentBalance;
 	// Use this for initialization
 	void Start () {
 		

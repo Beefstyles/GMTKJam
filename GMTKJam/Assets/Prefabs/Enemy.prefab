@@ -94,7 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 695b1585981e3654ba26698e1b28608f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ut: 0
+  ut: 4
 --- !u!114 &114477196107262342
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -110,8 +110,8 @@ MonoBehaviour:
   NumberOfDice: 1
   NumberOfAttacks: 1
   IsSelected: 0
-  ObjectSelected: {fileID: 0}
-  ObjectNotSelected: {fileID: 0}
+  ObjectSelected: {fileID: 2100000, guid: e1d2905b0529bbc4a964cd3c6eaba1c1, type: 2}
+  ObjectNotSelected: {fileID: 2100000, guid: 4778cbd1c3f1b9b489adff8344bfd1ae, type: 2}
   hexCoords:
     x: 0
     z: 0

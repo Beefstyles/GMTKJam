@@ -5,7 +5,9 @@ using UnityEngine.UI;
 
 public class GameUI : MonoBehaviour {
 
-    public Text ObjectName, MessageText;
+    public Text ObjectType, MessageText, ActionsRemaining, CostToUpgrade, TurnNumber, NumberResources, 
+        PerecentApprovalWH, PercentApprovalPK, PercentApprovalBalance,
+        PerecentWH, PercentPK, PercentBalance;
     HexGrid hexGrid;
     public GameObject BuildingInfo, UnitInfo;
     public GameObject SelectedObjectWindow;
@@ -21,9 +23,9 @@ public class GameUI : MonoBehaviour {
     {
         if (hexGrid.SelectedUnit != null)
         {
-            if (ObjectName.text != hexGrid.SelectedUnit.name)
+            if (ObjectType.text != hexGrid.SelectedUnit.GetComponent<ObjectInfo>().ut.ToString())
             {
-                ObjectName.text = hexGrid.SelectedUnit.name;
+                ObjectType.text = hexGrid.SelectedUnit.GetComponent<ObjectInfo>().ut.ToString();
             }
         }
         if (gc.GetIsObjectSelected())

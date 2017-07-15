@@ -1297,8 +1297,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abe69a010e7e2554cb3a2bbcc54177f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ObjectName: {fileID: 195710326}
+  ObjectType: {fileID: 195710326}
   MessageText: {fileID: 2017650708}
+  ActionsRemaining: {fileID: 1919039742}
+  CostToUpgrade: {fileID: 1593655991}
+  TurnNumber: {fileID: 403241057}
+  NumberResources: {fileID: 350382602}
+  PerecentApprovalWH: {fileID: 941652142}
+  PercentApprovalPK: {fileID: 249044607}
+  PercentApprovalBalance: {fileID: 2042899895}
+  PerecentWH: {fileID: 1665277833}
+  PercentPK: {fileID: 36661915}
+  PercentBalance: {fileID: 434663965}
   BuildingInfo: {fileID: 585799069}
   UnitInfo: {fileID: 2061628952}
   SelectedObjectWindow: {fileID: 927236246}
