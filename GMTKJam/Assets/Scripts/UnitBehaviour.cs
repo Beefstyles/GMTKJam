@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class UnitBehaviour : MonoBehaviour {
 
+    public UnitTypes ut;
     public int NumberOfMoves = 1;
     public int NumberOfDice = 1;
     public int NumberOfAttacks = 1;
