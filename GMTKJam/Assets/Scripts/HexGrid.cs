@@ -25,6 +25,7 @@ public class HexGrid : MonoBehaviour {
     public Vector3 TouchedCellPositon;
 
     public GameObject SelectedUnit;
+    GameUI Ui;
 
 	void Awake () {
 		gridCanvas = GetComponentInChildren<Canvas>();
@@ -42,7 +43,9 @@ public class HexGrid : MonoBehaviour {
 	void Start ()
     {
 		hexMesh.Triangulate(cells);
-	}
+        Ui = FindObjectOfType<GameUI>();
+
+    }
 
 	public void ColorCell (Vector3 position, Color color) {
 		position = transform.InverseTransformPoint(position);
@@ -115,13 +118,41 @@ public class HexGrid : MonoBehaviour {
         if (SelectedUnit != null)
         {
             SelectedUnit.GetComponent<UnitBehaviour>().FindCellLocation();
-
+            UnitTypes targetUT;
             if (Mathf.Abs(touchedCellCoords.X - SelectedUnitCoords.X) <= 1
             && Mathf.Abs(touchedCellCoords.Y - SelectedUnitCoords.Y) <= 1
             && Mathf.Abs(touchedCellCoords.Z - SelectedUnitCoords.Z) <= 1)
             {
-                SelectedUnit.transform.position = new Vector3(TouchedCellPositon.x, SelectedUnit.transform.position.y, TouchedCellPositon.z);
-                SelectedUnit.GetComponent<UnitBehaviour>().FindCellLocation();
+                if(OverallHexCoordsDict.GameDictionary.TryGetValue(touchedCellCoords, out targetUT))
+                {
+                    Debug.Log("Found something");
+                    switch (targetUT)
+                    {
+                        case UnitTypes.Solider:
+                            Ui.SetMessage("Cannot move here");
+                            break;
+                        case UnitTypes.Miner:
+                            Ui.SetMessage("Cannot move here");
+                            break;
+                        case UnitTypes.Settler:
+                            Ui.SetMessage("Cannot move here");
+                            break;
+                        case UnitTypes.Base:
+                            Ui.SetMessage("Cannot move here");
+                            break;
+                        case UnitTypes.Enemy:
+
+                            break;
+                        default:
+                            break;
+                    }
+                }
+                else
+                {
+                    Debug.Log("Didn't something");
+                    SelectedUnit.transform.position = new Vector3(TouchedCellPositon.x, SelectedUnit.transform.position.y, TouchedCellPositon.z);
+                    SelectedUnit.GetComponent<UnitBehaviour>().FindCellLocation();
+                }
             }
             else
             {
