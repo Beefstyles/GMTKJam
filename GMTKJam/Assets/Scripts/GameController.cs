@@ -27,7 +27,6 @@ public class GameController : MonoBehaviour {
     {
         yield return new WaitForSeconds(0.001F);
         unitArray = FindObjectsOfType<UnitBehaviour>();
-        Debug.Log(unitArray.Length);
     }
 	
 }

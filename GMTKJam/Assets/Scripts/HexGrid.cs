@@ -19,6 +19,8 @@ public class HexGrid : MonoBehaviour {
 	Canvas gridCanvas;
 	HexMesh hexMesh;
 
+    private Vector3 touchedCellPosition;
+
 	void Awake () {
 		gridCanvas = GetComponentInChildren<Canvas>();
 		hexMesh = GetComponentInChildren<HexMesh>();
@@ -79,17 +81,28 @@ public class HexGrid : MonoBehaviour {
         if(Physics.Raycast(inputRay,out hit))
         {
             TouchCell(hit.point);
+            touchedCellPosition = hit.collider.transform.position;
         }
     }
 
-    void TouchCell (Vector3 position)
+    public void TouchCell (Vector3 position)
+    {
+
+        position = transform.InverseTransformPoint(position);
+
+        HexCoordinates coordinates = HexCoordinates.FromPosition(position);
+        Debug.Log("Touched cell at " + coordinates.ToString());
+        int index = coordinates.X + coordinates.Z * width + coordinates.Z / 2;
+        HexCell cell = cells[index];
+
+        //cell.colour = touchedColour;
+        hexMesh.Triangulate(cells);
+    }
+
+    public HexCoordinates ReturnHexCoords(Vector3 position)
     {
         position = transform.InverseTransformPoint(position);
         HexCoordinates coordinates = HexCoordinates.FromPosition(position);
-
-        int index = coordinates.X + coordinates.Z * width + coordinates.Z / 2;
-        HexCell cell = cells[index];
-        cell.colour = touchedColour;
-        hexMesh.Triangulate(cells);
+        return coordinates;
     }
 }

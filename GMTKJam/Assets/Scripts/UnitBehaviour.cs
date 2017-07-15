@@ -10,9 +10,12 @@ public class UnitBehaviour : MonoBehaviour {
     public bool IsSelected;
     MeshRenderer mr;
     public Material ObjectSelected, ObjectNotSelected;
+    HexCoordinates hexCoords;
+    HexGrid hexGrid;
 
     void Start()
     {
+        hexGrid = FindObjectOfType<HexGrid>();
         mr = GetComponent<MeshRenderer>();
         mr.material = ObjectNotSelected;
     }
@@ -23,6 +26,8 @@ public class UnitBehaviour : MonoBehaviour {
         {
             IsSelected = true;
             mr.material = ObjectSelected;
+            FindCellLocation();
+
         }
     }
 
@@ -35,5 +40,11 @@ public class UnitBehaviour : MonoBehaviour {
         }
     }
 
-    
+    void FindCellLocation()
+    {
+        hexCoords = hexGrid.ReturnHexCoords(transform.position);
+        Debug.Log(hexCoords.ToString());
+    }
+
+
 }
