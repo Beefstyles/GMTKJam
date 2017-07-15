@@ -38,6 +38,7 @@ public class PlayerInput : MonoBehaviour {
                         gc.IsBaseSelected = true;
                         gc.SetIsObjectSelected(true);
                         gc.SelectedObject = hit.collider.gameObject;
+                        gc.DeselectAllUnits();
                     }
                     
                 }
