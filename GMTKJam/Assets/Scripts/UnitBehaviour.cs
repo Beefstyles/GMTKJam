@@ -10,7 +10,7 @@ public class UnitBehaviour : MonoBehaviour {
     public bool IsSelected;
     MeshRenderer mr;
     public Material ObjectSelected, ObjectNotSelected;
-    HexCoordinates hexCoords;
+    public HexCoordinates hexCoords;
     HexGrid hexGrid;
 
     void Start()
@@ -27,7 +27,7 @@ public class UnitBehaviour : MonoBehaviour {
             IsSelected = true;
             mr.material = ObjectSelected;
             FindCellLocation();
-
+            hexGrid.SelectedUnitCoords = hexCoords;
         }
     }
 

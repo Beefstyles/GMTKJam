@@ -19,7 +19,9 @@ public class HexGrid : MonoBehaviour {
 	Canvas gridCanvas;
 	HexMesh hexMesh;
 
-    private Vector3 touchedCellPosition;
+    private HexCoordinates touchedCellCoords;
+    public HexCoordinates SelectedUnitCoords;
+    public GameObject SelectedUnit;
 
 	void Awake () {
 		gridCanvas = GetComponentInChildren<Canvas>();
@@ -34,7 +36,8 @@ public class HexGrid : MonoBehaviour {
 		}
 	}
 
-	void Start () {
+	void Start ()
+    {
 		hexMesh.Triangulate(cells);
 	}
 
@@ -81,7 +84,7 @@ public class HexGrid : MonoBehaviour {
         if(Physics.Raycast(inputRay,out hit))
         {
             TouchCell(hit.point);
-            touchedCellPosition = hit.collider.transform.position;
+            touchedCellCoords = ReturnHexCoords(hit.point);
         }
     }
 
@@ -97,6 +100,7 @@ public class HexGrid : MonoBehaviour {
 
         //cell.colour = touchedColour;
         hexMesh.Triangulate(cells);
+        HandleMovement();
     }
 
     public HexCoordinates ReturnHexCoords(Vector3 position)
@@ -105,4 +109,22 @@ public class HexGrid : MonoBehaviour {
         HexCoordinates coordinates = HexCoordinates.FromPosition(position);
         return coordinates;
     }
-}
+
+    public void HandleMovement()
+    {
+            Debug.Log("touchedCellCoords: " + touchedCellCoords.ToString() + "selectedCellCoords: " + SelectedUnitCoords.ToString());
+        if(Mathf.Abs(touchedCellCoords.X - SelectedUnitCoords.X) <= 1
+        && Mathf.Abs(touchedCellCoords.Y - SelectedUnitCoords.Y) <= 1
+        && Mathf.Abs(touchedCellCoords.Z - SelectedUnitCoords.Z) <= 1)
+        {
+            Debug.Log("This is a reasonable position to move");
+            
+        }
+        else
+        {
+            Debug.Log("Not a reasonable position to move");
+        }
+
+
+        }
+    }
