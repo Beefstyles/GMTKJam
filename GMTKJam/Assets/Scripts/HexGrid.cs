@@ -25,7 +25,7 @@ public class HexGrid : MonoBehaviour {
     public Vector3 TouchedCellPositon;
 
     public GameObject SelectedUnit;
-    GameUI Ui;
+    GameUI gameUI;
     GameController gc;
 
 	void Awake () {
@@ -44,7 +44,7 @@ public class HexGrid : MonoBehaviour {
 	void Start ()
     {
 		hexMesh.Triangulate(cells);
-        Ui = FindObjectOfType<GameUI>();
+        gameUI = FindObjectOfType<GameUI>();
         gc = FindObjectOfType<GameController>();
 
     }
@@ -127,24 +127,24 @@ public class HexGrid : MonoBehaviour {
             {
                 if(OverallHexCoordsDict.GameDictionary.TryGetValue(touchedCellCoords, out targetUT))
                 {
-                    Debug.Log("Found something");
                     switch (targetUT)
                     {
                         case UnitTypes.Solider:
-                            Ui.SetMessage("Cannot move here");
+                            StartCoroutine(gameUI.SetMessage("Cannot move here"));
                             break;
                         case UnitTypes.Miner:
-                            Ui.SetMessage("Cannot move here");
+                            StartCoroutine(gameUI.SetMessage("Cannot move here"));
                             break;
                         case UnitTypes.Settler:
-                            Ui.SetMessage("Cannot move here");
+                            StartCoroutine(gameUI.SetMessage("Cannot move here"));
                             break;
                         case UnitTypes.Base:
-                            Ui.SetMessage("Cannot move here");
+                            StartCoroutine(gameUI.SetMessage("Cannot move here"));
                             break;
                         case UnitTypes.Enemy:
                             gc.RefreshUnitArray();
                             gc.CheckDeathCoords(touchedCellCoords);
+                            StartCoroutine(gameUI.SetMessage("Destroyed enemy"));
                             break;
                         default:
                             break;
