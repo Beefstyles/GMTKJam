@@ -43,10 +43,15 @@ public class PlayerInput : MonoBehaviour {
                     ub = hit.collider.GetComponent<UnitBehaviour>();
                     if(ub != null)
                     {
-                        gc.DeselectAllUnits();
-                        ub.SelectUnit();
+                        if(hit.collider.GetComponent<ObjectInfo>().ut != UnitTypes.Enemy)
+                        {
+                            gc.DeselectAllUnits();
+                            ub.SelectUnit();
+                            gc.IsBaseSelected = false;
+                        }
+                        
                     }
-                    gc.IsBaseSelected = false;
+                    
                 }
             }
 
