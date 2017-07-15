@@ -5,50 +5,73 @@ using UnityEngine;
 public class BaseActionController : MonoBehaviour {
 
     GameController gc;
+    BaseController bc;
     public int CostOfSoldier, CostOfMiner, CostOfSettler;
     GameUI gameUI;
 
     void Start()
     {
         gc = FindObjectOfType<GameController>();
+        bc = FindObjectOfType<BaseController>();
         gameUI = FindObjectOfType<GameUI>();
     }
 
 	public void SpawnSoldierUnit()
     {
-        if(CostOfSoldier >= gc.NumberOfResources)
+        if (bc.NumberOfActionsRemaining > 0)
         {
-            gc.NumberOfResources -= CostOfSoldier;
-            gc.ObjectSpawner(gc.SoldierObject, gc.ObjectSpawnLocation.position);
+            if (CostOfSoldier >= gc.NumberOfResources)
+            {
+                gc.NumberOfResources -= CostOfSoldier;
+                gc.ObjectSpawner(gc.SoldierObject, gc.ObjectSpawnLocation.position);
+            }
+            else
+            {
+                StartCoroutine(gameUI.SetMessage("Cannot afford soldier"));
+            }
         }
         else
         {
-            StartCoroutine(gameUI.SetMessage("Cannot afford solider"));
+            StartCoroutine(gameUI.SetMessage("No actions remaining"));
         }
+        
     }
     public void SpawnMinerUnit()
     {
-        if (CostOfMiner >= gc.NumberOfResources)
+        if (bc.NumberOfActionsRemaining > 0)
         {
-            gc.NumberOfResources -= CostOfMiner;
-            gc.ObjectSpawner(gc.MinerObject, gc.ObjectSpawnLocation.position);
+            if (CostOfMiner >= gc.NumberOfResources)
+            {
+                gc.NumberOfResources -= CostOfMiner;
+                gc.ObjectSpawner(gc.MinerObject, gc.ObjectSpawnLocation.position);
+            }
+            else
+            {
+                StartCoroutine(gameUI.SetMessage("Cannot afford miner"));
+            }
         }
         else
         {
-            StartCoroutine(gameUI.SetMessage("Cannot afford miner"));
+            StartCoroutine(gameUI.SetMessage("No actions remaining"));
         }
     }
     public void SpawnSettlerUnit()
     {
-
-        if (CostOfSettler >= gc.NumberOfResources)
+        if (bc.NumberOfActionsRemaining > 0)
         {
-            gc.NumberOfResources -= CostOfSettler;
-            gc.ObjectSpawner(gc.SettlerObject, gc.ObjectSpawnLocation.position);
+            if (CostOfSettler >= gc.NumberOfResources)
+            {
+                gc.NumberOfResources -= CostOfSettler;
+                gc.ObjectSpawner(gc.SettlerObject, gc.ObjectSpawnLocation.position);
+            }
+            else
+            {
+                StartCoroutine(gameUI.SetMessage("Cannot afford settler"));
+            }
         }
         else
         {
-            StartCoroutine(gameUI.SetMessage("Cannot afford settler"));
+            StartCoroutine(gameUI.SetMessage("No actions remaining"));
         }
     }
 }

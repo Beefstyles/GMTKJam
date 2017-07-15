@@ -16,6 +16,7 @@ public class GameController : MonoBehaviour {
     HexGrid hexGrid;
     HexCoordinates spawnTargetCoords;
     GameUI gameUI;
+    BaseController bc;
 
     public bool IsBaseSelected
     {
@@ -60,6 +61,7 @@ public class GameController : MonoBehaviour {
         StartCoroutine("RefreshUnitArray");
         hexGrid = FindObjectOfType<HexGrid>();
         gameUI = FindObjectOfType<GameUI>();
+        bc = FindObjectOfType<BaseController>();
     }
 
     public void DeselectAllUnits()
@@ -95,13 +97,14 @@ public class GameController : MonoBehaviour {
             switch (spawnUt)
             {
                 default:
-                    StartCoroutine(gameUI.SetMessage("Move out unit from spawn Zone"));
+                    StartCoroutine(gameUI.SetMessage("Move Out unit from spawn Zone"));
                     break;
             }
         }
         else
         {
             GameObject go = Instantiate(objectToBeSpawned, location, Quaternion.identity);
+            bc.NumberOfActionsRemaining--;
         }
         
     }
