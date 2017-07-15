@@ -55,9 +55,11 @@ public class UnitBehaviour : MonoBehaviour {
 
     public void FindCellLocation()
     {
+        RemoveLocationFromDict();
         SetHexCoords();
         hexGrid.SelectedUnitCoords = hexCoords;
         hexGrid.SelectedUnit = gameObject;
+        AddLocationToDict();
     }
 
     private void SetHexCoords()
