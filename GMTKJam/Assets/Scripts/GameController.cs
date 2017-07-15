@@ -10,6 +10,10 @@ public class GameController : MonoBehaviour {
 
     private int numberOfResources;
 
+    public GameObject BaseObject, SoldierObject, SettlerObject, MinerObject;
+
+    public Transform ObjectSpawnLocation;
+
     public bool IsBaseSelected
     {
         get
@@ -70,5 +74,17 @@ public class GameController : MonoBehaviour {
         yield return new WaitForSeconds(0.001F);
         unitArray = FindObjectsOfType<UnitBehaviour>();
     }
-	
+
+
+    void StartGame()
+    {
+        
+    }
+
+    public void ObjectSpawner(GameObject objectToBeSpawned, Vector3 location)
+    {
+        GameObject go = Instantiate(objectToBeSpawned, location, Quaternion.identity);
+    }
+
+     
 }

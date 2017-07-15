@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class GameUI : MonoBehaviour {
 
-    public Text ObjectName;
+    public Text ObjectName, MessageText;
     HexGrid hexGrid;
     public GameObject BuildingInfo, UnitInfo;
     public GameObject SelectedObjectWindow;
@@ -57,7 +57,12 @@ public class GameUI : MonoBehaviour {
                 SelectedObjectWindow.SetActive(false);
             }
         }
-        
-        
 	}
+
+    public IEnumerator SetMessage(string message)
+    {
+        MessageText.text = message;
+        yield return new WaitForSeconds(5F);
+        MessageText.text = "";
+    }
 }
