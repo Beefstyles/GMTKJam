@@ -87,7 +87,6 @@ public class HexGrid : MonoBehaviour {
         if(Physics.Raycast(inputRay,out hit))
         {
             TouchCell(hit.point);
-            //touchedCellCoords = ReturnHexCoords(hit.point);
         }
     }
 
@@ -115,18 +114,21 @@ public class HexGrid : MonoBehaviour {
 
     public void HandleMovement()
     {
-        SelectedUnit.GetComponent<UnitBehaviour>().FindCellLocation();
-
-        if(Mathf.Abs(touchedCellCoords.X - SelectedUnitCoords.X) <= 1
-        && Mathf.Abs(touchedCellCoords.Y - SelectedUnitCoords.Y) <= 1
-        && Mathf.Abs(touchedCellCoords.Z - SelectedUnitCoords.Z) <= 1)
+        if (SelectedUnit != null)
         {
-            SelectedUnit.transform.position = new Vector3(TouchedCellPositon.x, SelectedUnit.transform.position.y, TouchedCellPositon.z);
             SelectedUnit.GetComponent<UnitBehaviour>().FindCellLocation();
+
+            if (Mathf.Abs(touchedCellCoords.X - SelectedUnitCoords.X) <= 1
+            && Mathf.Abs(touchedCellCoords.Y - SelectedUnitCoords.Y) <= 1
+            && Mathf.Abs(touchedCellCoords.Z - SelectedUnitCoords.Z) <= 1)
+            {
+                SelectedUnit.transform.position = new Vector3(TouchedCellPositon.x, SelectedUnit.transform.position.y, TouchedCellPositon.z);
+                SelectedUnit.GetComponent<UnitBehaviour>().FindCellLocation();
+            }
+            else
+            {
+                Debug.Log("Not a reasonable position to move");
+            }
         }
-        else
-        {
-            Debug.Log("Not a reasonable position to move");
-        }
-        }
-    }
+    }    
+}

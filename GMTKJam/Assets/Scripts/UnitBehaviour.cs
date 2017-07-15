@@ -28,6 +28,10 @@ public class UnitBehaviour : MonoBehaviour {
             mr.material = ObjectSelected;
             FindCellLocation();
         }
+        else
+        {
+            DeSelectUnit();
+        }
     }
 
     public void DeSelectUnit()
@@ -36,6 +40,7 @@ public class UnitBehaviour : MonoBehaviour {
         {
             IsSelected = false;
             mr.material = ObjectNotSelected;
+            RemoveFromHexGridSelection();
         }
     }
 
@@ -44,6 +49,11 @@ public class UnitBehaviour : MonoBehaviour {
         hexCoords = hexGrid.ReturnHexCoords(transform.position);
         hexGrid.SelectedUnitCoords = hexCoords;
         hexGrid.SelectedUnit = gameObject;
+    }
+
+    void RemoveFromHexGridSelection()
+    {
+        hexGrid.SelectedUnit = null;
     }
 
 
