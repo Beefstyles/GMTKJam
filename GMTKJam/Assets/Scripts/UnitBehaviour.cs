@@ -6,6 +6,7 @@ public class UnitBehaviour : MonoBehaviour {
 
     private UnitTypes ut;
     public int NumberOfActions = 1;
+    private int maxActions = 1;
     public bool IsSelected;
     MeshRenderer mr;
     public Material ObjectSelected, ObjectNotSelected;
@@ -102,6 +103,9 @@ public class UnitBehaviour : MonoBehaviour {
         yield return new WaitForSeconds(0.1F);
     }
 
-
+    public void ResetOnTurn()
+    {
+        NumberOfActions = maxActions;
+    }
 
 }

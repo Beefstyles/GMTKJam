@@ -6,6 +6,7 @@ public class GameController : MonoBehaviour {
 
     UnitBehaviour[] unitArray;
 
+
     private bool isBaseSelected;
 
     private int numberOfResources;
@@ -120,5 +121,15 @@ public class GameController : MonoBehaviour {
         }
     }
 
+
+    public void NextTurn()
+    {
+        TurnNumber++;
+        bc.ResetOnTurn();
+        foreach (var unit in unitArray)
+        {
+            unit.ResetOnTurn();
+        }
+    }
      
 }

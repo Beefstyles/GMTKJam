@@ -118,48 +118,45 @@ public class HexGrid : MonoBehaviour {
     {
         if (gc.SelectedObject != null)
         {
-            gc.SelectedObject.GetComponent<UnitBehaviour>().FindCellLocation();
-            UnitTypes targetUT;
-            if (Mathf.Abs(touchedCellCoords.X - SelectedUnitCoords.X) <= 1
-            && Mathf.Abs(touchedCellCoords.Y - SelectedUnitCoords.Y) <= 1
-            && Mathf.Abs(touchedCellCoords.Z - SelectedUnitCoords.Z) <= 1)
+            if(gc.SelectedObject.GetComponent<UnitBehaviour>().NumberOfActions > 0)
             {
-                if(OverallHexCoordsDict.GameDictionary.TryGetValue(touchedCellCoords, out targetUT))
+                gc.SelectedObject.GetComponent<UnitBehaviour>().FindCellLocation();
+                UnitTypes targetUT;
+                if (Mathf.Abs(touchedCellCoords.X - SelectedUnitCoords.X) <= 1
+                && Mathf.Abs(touchedCellCoords.Y - SelectedUnitCoords.Y) <= 1
+                && Mathf.Abs(touchedCellCoords.Z - SelectedUnitCoords.Z) <= 1)
                 {
-                    switch (targetUT)
+                    if (OverallHexCoordsDict.GameDictionary.TryGetValue(touchedCellCoords, out targetUT))
                     {
-                        case UnitTypes.Soldier:
-                            StartCoroutine(gameUI.SetMessage("Cannot move here"));
-                            break;
-                        case UnitTypes.Miner:
-                            StartCoroutine(gameUI.SetMessage("Cannot move here"));
-                            break;
-                        case UnitTypes.Settler:
-                            StartCoroutine(gameUI.SetMessage("Cannot move here"));
-                            break;
-                        case UnitTypes.Base:
-                            StartCoroutine(gameUI.SetMessage("Cannot move here"));
-                            break;
-                        case UnitTypes.Enemy:
-                            gc.RefreshUnitArray();
-                            gc.CheckDeathCoords(touchedCellCoords);
-                            StartCoroutine(gameUI.SetMessage("Destroyed enemy"));
-                            break;
-                        default:
-                            break;
+                        switch (targetUT)
+                        {
+                            case UnitTypes.Enemy:
+                                gc.RefreshUnitArray();
+                                gc.CheckDeathCoords(touchedCellCoords);
+                                StartCoroutine(gameUI.SetMessage("Destroyed enemy"));
+                                break;
+                            default:
+                                StartCoroutine(gameUI.SetMessage("Cannot move here"));
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        gc.SelectedObject.transform.position = new Vector3(TouchedCellPositon.x, gc.SelectedObject.transform.position.y, TouchedCellPositon.z);
+                        gc.SelectedObject.GetComponent<UnitBehaviour>().FindCellLocation();
+                        gc.SelectedObject.GetComponent<UnitBehaviour>().NumberOfActions--;
                     }
                 }
                 else
                 {
-
-                    gc.SelectedObject.transform.position = new Vector3(TouchedCellPositon.x, gc.SelectedObject.transform.position.y, TouchedCellPositon.z);
-                    gc.SelectedObject.GetComponent<UnitBehaviour>().FindCellLocation();
+                    Debug.Log("Not a reasonable position to move");
                 }
             }
             else
             {
-                Debug.Log("Not a reasonable position to move");
+                StartCoroutine(gameUI.SetMessage("No actions remaining"));
             }
+            
         }
     }    
 }

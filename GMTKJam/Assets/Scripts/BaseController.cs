@@ -5,6 +5,9 @@ using UnityEngine;
 public class BaseController : MonoBehaviour {
 
     public int NumberOfActionsRemaining;
+
+    [SerializeField]
+    private int maxActions = 1;
     private UnitTypes ut;
     public string Name;
     public HexCoordinates hexCoords;
@@ -21,6 +24,11 @@ public class BaseController : MonoBehaviour {
     private void SetHexCoords()
     {
         hexCoords = hexGrid.ReturnHexCoords(transform.position);
+    }
+
+    public void ResetOnTurn()
+    {
+        NumberOfActionsRemaining = maxActions;
     }
 
 }
