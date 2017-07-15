@@ -8,6 +8,8 @@ public class GameController : MonoBehaviour {
 
     private bool isBaseSelected;
 
+    private int numberOfResources;
+
     public bool IsBaseSelected
     {
         get
@@ -18,6 +20,19 @@ public class GameController : MonoBehaviour {
         set
         {
             isBaseSelected = value;
+        }
+    }
+
+    public int NumberOfResources
+    {
+        get
+        {
+            return numberOfResources;
+        }
+
+        set
+        {
+            numberOfResources = value;
         }
     }
 

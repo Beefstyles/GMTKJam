@@ -8,15 +8,11 @@ public class BaseActionController : MonoBehaviour {
     {
 
     }
-    public void SpawnScienceUnit()
+    public void SpawnMinerUnit()
     {
 
     }
     public void SpawnSettlerUnit()
-    {
-
-    }
-    public void SpawnDefenseUnit()
     {
 
     }
