@@ -12,6 +12,7 @@ public class GameController : MonoBehaviour {
 
     public GameObject BaseObject, SoldierObject, SettlerObject, MinerObject;
 
+    public int TurnNumber;
     public Transform ObjectSpawnLocation;
     HexGrid hexGrid;
     HexCoordinates spawnTargetCoords;

@@ -6,12 +6,12 @@ public class PoliticsTracker : MonoBehaviour {
 
     public int PercentApprovalWH, PercentApprovalPK, PercentApprovalBalance;
     public int PercentWH, PercentPK, PercentBalance;
-	// Use this for initialization
-	void Start () {
+
+	void Start ()
+    {
 		
 	}
 	
-	// Update is called once per frame
 	void Update () {
 		
 	}

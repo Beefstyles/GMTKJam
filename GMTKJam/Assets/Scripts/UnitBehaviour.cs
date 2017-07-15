@@ -5,9 +5,7 @@ using UnityEngine;
 public class UnitBehaviour : MonoBehaviour {
 
     private UnitTypes ut;
-    public int NumberOfMoves = 1;
-    public int NumberOfDice = 1;
-    public int NumberOfAttacks = 1;
+    public int NumberOfActions = 1;
     public bool IsSelected;
     MeshRenderer mr;
     public Material ObjectSelected, ObjectNotSelected;

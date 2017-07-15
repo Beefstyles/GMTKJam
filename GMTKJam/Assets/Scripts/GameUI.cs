@@ -6,30 +6,49 @@ using UnityEngine.UI;
 public class GameUI : MonoBehaviour {
 
     public Text ObjectType, MessageText, ActionsRemaining, CostToUpgrade, TurnNumber, NumberResources, 
-        PerecentApprovalWH, PercentApprovalPK, PercentApprovalBalance,
-        PerecentWH, PercentPK, PercentBalance;
+        PercentApprovalWH, PercentApprovalPK, PercentApprovalBalance,
+        PercentWH, PercentPK, PercentBalance;
     HexGrid hexGrid;
     public GameObject BuildingInfo, UnitInfo;
     public GameObject SelectedObjectWindow;
     GameController gc;
+    PoliticsTracker pt;
 
 	void Start ()
     {
         hexGrid = FindObjectOfType<HexGrid>();
         gc = FindObjectOfType<GameController>();
+        pt = FindObjectOfType<PoliticsTracker>();
     }
 	
 	void Update ()
     {
-        if (hexGrid.SelectedUnit != null)
-        {
-            if (ObjectType.text != hexGrid.SelectedUnit.GetComponent<ObjectInfo>().ut.ToString())
-            {
-                ObjectType.text = hexGrid.SelectedUnit.GetComponent<ObjectInfo>().ut.ToString();
-            }
-        }
+        UpdateSelectedUnitUI();
+        UpdateTurnNumberText();
+        UpdateResourceText();
+        UpdatePoliticsNumbers();
         if (gc.GetIsObjectSelected())
         {
+            SetObjectDetails();
+        }
+        else
+        {
+            if (SelectedObjectWindow.activeSelf)
+            {
+                SelectedObjectWindow.SetActive(false);
+            }
+        }
+    }
+
+    public IEnumerator SetMessage(string message)
+    {
+        MessageText.text = message;
+        yield return new WaitForSeconds(5F);
+        MessageText.text = "";
+    }
+
+    private void SetObjectDetails()
+    {
             if (!SelectedObjectWindow.activeSelf)
             {
                 SelectedObjectWindow.SetActive(true);
@@ -51,20 +70,70 @@ public class GameUI : MonoBehaviour {
                     UnitInfo.SetActive(true);
                 }
             }
-        }
-        else
+    }
+
+    private void UpdateSelectedUnitUI()
+    {
+        if (hexGrid.SelectedUnit != null)
         {
-            if (SelectedObjectWindow.activeSelf)
+            if (ObjectType.text != hexGrid.SelectedUnit.GetComponent<ObjectInfo>().ut.ToString())
             {
-                SelectedObjectWindow.SetActive(false);
+                ObjectType.text = hexGrid.SelectedUnit.GetComponent<ObjectInfo>().ut.ToString();
+            }
+            if (hexGrid.SelectedUnit.GetComponent<ObjectInfo>().ut == UnitTypes.Base)
+            {
+                if (ActionsRemaining.text != hexGrid.SelectedUnit.GetComponent<BaseController>().NumberOfActionsRemaining.ToString())
+                {
+                    ObjectType.text = hexGrid.SelectedUnit.GetComponent<BaseController>().NumberOfActionsRemaining.ToString();
+                }
+            }
+            else
+            {
+                if (ActionsRemaining.text != hexGrid.SelectedUnit.GetComponent<UnitBehaviour>().NumberOfActions.ToString())
+                {
+                    ObjectType.text = hexGrid.SelectedUnit.GetComponent<UnitBehaviour>().NumberOfActions.ToString();
+                }
             }
         }
-	}
+    }
 
-    public IEnumerator SetMessage(string message)
+    private void UpdateTurnNumberText()
     {
-        MessageText.text = message;
-        yield return new WaitForSeconds(5F);
-        MessageText.text = "";
+        if (TurnNumber.text != gc.TurnNumber.ToString())
+        {
+            TurnNumber.text = gc.TurnNumber.ToString();
+        }
+    }
+
+    private void UpdateResourceText()
+    {
+        if (NumberResources.text != gc.NumberOfResources.ToString())
+        {
+            NumberResources.text = gc.NumberOfResources.ToString();
+        }
+    }
+
+    private void UpdatePoliticsNumbers()
+    {
+        if (PercentApprovalWH.text != pt.PercentApprovalWH.ToString())
+        {
+            PercentApprovalWH.text = pt.PercentApprovalWH.ToString() + "%";
+        }
+        if (PercentApprovalPK.text != pt.PercentApprovalPK.ToString())
+        {
+            PercentApprovalPK.text = pt.PercentApprovalPK.ToString() + "%";
+        }
+        if (PercentWH.text != pt.PercentWH.ToString())
+        {
+            PercentWH.text = pt.PercentWH.ToString() + "%";
+        }
+        if (PercentPK.text != pt.PercentPK.ToString())
+        {
+            PercentPK.text = pt.PercentPK.ToString() + "%";
+        }
+        if (PercentBalance.text != pt.PercentBalance.ToString())
+        {
+            PercentBalance.text = pt.PercentBalance.ToString() + "%";
+        }
     }
 }
