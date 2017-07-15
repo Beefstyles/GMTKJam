@@ -26,6 +26,7 @@ public class HexGrid : MonoBehaviour {
 
     public GameObject SelectedUnit;
     GameUI Ui;
+    GameController gc;
 
 	void Awake () {
 		gridCanvas = GetComponentInChildren<Canvas>();
@@ -44,6 +45,7 @@ public class HexGrid : MonoBehaviour {
     {
 		hexMesh.Triangulate(cells);
         Ui = FindObjectOfType<GameUI>();
+        gc = FindObjectOfType<GameController>();
 
     }
 
@@ -141,7 +143,8 @@ public class HexGrid : MonoBehaviour {
                             Ui.SetMessage("Cannot move here");
                             break;
                         case UnitTypes.Enemy:
-
+                            gc.RefreshUnitArray();
+                            gc.CheckDeathCoords(touchedCellCoords);
                             break;
                         default:
                             break;
@@ -149,7 +152,7 @@ public class HexGrid : MonoBehaviour {
                 }
                 else
                 {
-                    Debug.Log("Didn't something");
+
                     SelectedUnit.transform.position = new Vector3(TouchedCellPositon.x, SelectedUnit.transform.position.y, TouchedCellPositon.z);
                     SelectedUnit.GetComponent<UnitBehaviour>().FindCellLocation();
                 }

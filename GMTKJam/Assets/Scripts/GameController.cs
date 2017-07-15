@@ -84,7 +84,14 @@ public class GameController : MonoBehaviour {
     public void ObjectSpawner(GameObject objectToBeSpawned, Vector3 location)
     {
         GameObject go = Instantiate(objectToBeSpawned, location, Quaternion.identity);
+    }
 
+    public void CheckDeathCoords(HexCoordinates victimCoords)
+    {
+        foreach (var unit in unitArray)
+        {
+            unit.DestroySelf(victimCoords);
+        }
     }
 
      

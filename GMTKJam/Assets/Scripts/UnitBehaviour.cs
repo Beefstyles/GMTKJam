@@ -82,5 +82,14 @@ public class UnitBehaviour : MonoBehaviour {
         hexGrid.SelectedUnit = null;
     }
 
+    public void DestroySelf(HexCoordinates victimCoords)
+    {
+        if(victimCoords.ToString() == hexCoords.ToString())
+        {
+            RemoveLocationFromDict();
+            Destroy(this.gameObject);
+        }
+    }
+
 
 }
