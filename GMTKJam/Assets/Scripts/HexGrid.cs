@@ -87,22 +87,21 @@ public class HexGrid : MonoBehaviour {
         if(Physics.Raycast(inputRay,out hit))
         {
             TouchCell(hit.point);
-            touchedCellCoords = ReturnHexCoords(hit.point);
+            //touchedCellCoords = ReturnHexCoords(hit.point);
         }
     }
 
     public void TouchCell (Vector3 position)
     {
-
         position = transform.InverseTransformPoint(position);
 
         HexCoordinates coordinates = HexCoordinates.FromPosition(position);
+        touchedCellCoords = coordinates;
         Debug.Log("Touched cell at " + coordinates.ToString());
         int index = coordinates.X + coordinates.Z * width + coordinates.Z / 2;
         HexCell cell = cells[index];
         TouchedCellPositon = cell.transform.position;
 
-        //cell.colour = touchedColour;
         hexMesh.Triangulate(cells);
         HandleMovement();
     }
@@ -116,12 +115,12 @@ public class HexGrid : MonoBehaviour {
 
     public void HandleMovement()
     {
-            Debug.Log("touchedCellCoords: " + touchedCellCoords.ToString() + "selectedCellCoords: " + SelectedUnitCoords.ToString());
+        SelectedUnit.GetComponent<UnitBehaviour>().FindCellLocation();
+
         if(Mathf.Abs(touchedCellCoords.X - SelectedUnitCoords.X) <= 1
         && Mathf.Abs(touchedCellCoords.Y - SelectedUnitCoords.Y) <= 1
         && Mathf.Abs(touchedCellCoords.Z - SelectedUnitCoords.Z) <= 1)
         {
-            Debug.Log("This is a reasonable position to move");
             SelectedUnit.transform.position = new Vector3(TouchedCellPositon.x, SelectedUnit.transform.position.y, TouchedCellPositon.z);
             SelectedUnit.GetComponent<UnitBehaviour>().FindCellLocation();
         }
@@ -129,7 +128,5 @@ public class HexGrid : MonoBehaviour {
         {
             Debug.Log("Not a reasonable position to move");
         }
-
-
         }
     }
