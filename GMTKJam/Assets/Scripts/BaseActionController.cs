@@ -20,7 +20,6 @@ public class BaseActionController : MonoBehaviour {
         {
             gc.NumberOfResources -= CostOfSoldier;
             gc.ObjectSpawner(gc.SoldierObject, gc.ObjectSpawnLocation.position);
-            StartCoroutine(gameUI.SetMessage("Spawned Soldier"));
         }
         else
         {
@@ -33,7 +32,6 @@ public class BaseActionController : MonoBehaviour {
         {
             gc.NumberOfResources -= CostOfMiner;
             gc.ObjectSpawner(gc.MinerObject, gc.ObjectSpawnLocation.position);
-            StartCoroutine(gameUI.SetMessage("Spawned miner"));
         }
         else
         {
@@ -47,7 +45,6 @@ public class BaseActionController : MonoBehaviour {
         {
             gc.NumberOfResources -= CostOfSettler;
             gc.ObjectSpawner(gc.SettlerObject, gc.ObjectSpawnLocation.position);
-            StartCoroutine(gameUI.SetMessage("Spawned settler"));
         }
         else
         {

@@ -13,6 +13,9 @@ public class GameController : MonoBehaviour {
     public GameObject BaseObject, SoldierObject, SettlerObject, MinerObject;
 
     public Transform ObjectSpawnLocation;
+    HexGrid hexGrid;
+    HexCoordinates spawnTargetCoords;
+    GameUI gameUI;
 
     public bool IsBaseSelected
     {
@@ -55,6 +58,8 @@ public class GameController : MonoBehaviour {
     void Start ()
     {
         StartCoroutine("RefreshUnitArray");
+        hexGrid = FindObjectOfType<HexGrid>();
+        gameUI = FindObjectOfType<GameUI>();
     }
 
     public void DeselectAllUnits()
@@ -83,7 +88,22 @@ public class GameController : MonoBehaviour {
 
     public void ObjectSpawner(GameObject objectToBeSpawned, Vector3 location)
     {
-        GameObject go = Instantiate(objectToBeSpawned, location, Quaternion.identity);
+        spawnTargetCoords = hexGrid.ReturnHexCoords(location);
+        UnitTypes spawnUt;
+        if (OverallHexCoordsDict.GameDictionary.TryGetValue(spawnTargetCoords, out spawnUt))
+        {
+            switch (spawnUt)
+            {
+                default:
+                    StartCoroutine(gameUI.SetMessage("Move out unit from spawn Zone"));
+                    break;
+            }
+        }
+        else
+        {
+            GameObject go = Instantiate(objectToBeSpawned, location, Quaternion.identity);
+        }
+        
     }
 
     public void CheckDeathCoords(HexCoordinates victimCoords)
