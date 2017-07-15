@@ -74,24 +74,25 @@ public class GameUI : MonoBehaviour {
 
     private void UpdateSelectedUnitUI()
     {
-        if (hexGrid.SelectedUnit != null)
+        if (gc.SelectedObject != null)
         {
-            if (ObjectType.text != hexGrid.SelectedUnit.GetComponent<ObjectInfo>().ut.ToString())
+            if (ObjectType.text != gc.SelectedObject.GetComponent<ObjectInfo>().ut.ToString())
             {
-                ObjectType.text = hexGrid.SelectedUnit.GetComponent<ObjectInfo>().ut.ToString();
+                ObjectType.text = gc.SelectedObject.GetComponent<ObjectInfo>().ut.ToString();
             }
-            if (hexGrid.SelectedUnit.GetComponent<ObjectInfo>().ut == UnitTypes.Base)
+            if (gc.SelectedObject.GetComponent<ObjectInfo>().ut == UnitTypes.Base)
             {
-                if (ActionsRemaining.text != hexGrid.SelectedUnit.GetComponent<BaseController>().NumberOfActionsRemaining.ToString())
+                if (ActionsRemaining.text != gc.SelectedObject.GetComponent<BaseController>().NumberOfActionsRemaining.ToString())
                 {
-                    ObjectType.text = hexGrid.SelectedUnit.GetComponent<BaseController>().NumberOfActionsRemaining.ToString();
+                    ActionsRemaining.text = gc.SelectedObject.GetComponent<BaseController>().NumberOfActionsRemaining.ToString();
                 }
             }
             else
             {
-                if (ActionsRemaining.text != hexGrid.SelectedUnit.GetComponent<UnitBehaviour>().NumberOfActions.ToString())
+
+                if (ActionsRemaining.text != gc.SelectedObject.GetComponent<UnitBehaviour>().NumberOfActions.ToString())
                 {
-                    ObjectType.text = hexGrid.SelectedUnit.GetComponent<UnitBehaviour>().NumberOfActions.ToString();
+                    ActionsRemaining.text = gc.SelectedObject.GetComponent<UnitBehaviour>().NumberOfActions.ToString();
                 }
             }
         }
@@ -122,6 +123,10 @@ public class GameUI : MonoBehaviour {
         if (PercentApprovalPK.text != pt.PercentApprovalPK.ToString())
         {
             PercentApprovalPK.text = pt.PercentApprovalPK.ToString() + "%";
+        }
+        if (PercentApprovalBalance.text != pt.PercentApprovalBalance.ToString())
+        {
+            PercentApprovalBalance.text = pt.PercentApprovalBalance.ToString() + "%";
         }
         if (PercentWH.text != pt.PercentWH.ToString())
         {

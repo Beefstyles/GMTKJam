@@ -19,6 +19,8 @@ public class GameController : MonoBehaviour {
     GameUI gameUI;
     BaseController bc;
 
+    public GameObject SelectedObject;
+
     public bool IsBaseSelected
     {
         get

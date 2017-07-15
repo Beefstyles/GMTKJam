@@ -24,7 +24,6 @@ public class HexGrid : MonoBehaviour {
 
     public Vector3 TouchedCellPositon;
 
-    public GameObject SelectedUnit;
     GameUI gameUI;
     GameController gc;
 
@@ -117,9 +116,9 @@ public class HexGrid : MonoBehaviour {
 
     public void HandleMovement()
     {
-        if (SelectedUnit != null)
+        if (gc.SelectedObject != null)
         {
-            SelectedUnit.GetComponent<UnitBehaviour>().FindCellLocation();
+            gc.SelectedObject.GetComponent<UnitBehaviour>().FindCellLocation();
             UnitTypes targetUT;
             if (Mathf.Abs(touchedCellCoords.X - SelectedUnitCoords.X) <= 1
             && Mathf.Abs(touchedCellCoords.Y - SelectedUnitCoords.Y) <= 1
@@ -129,7 +128,7 @@ public class HexGrid : MonoBehaviour {
                 {
                     switch (targetUT)
                     {
-                        case UnitTypes.Solider:
+                        case UnitTypes.Soldier:
                             StartCoroutine(gameUI.SetMessage("Cannot move here"));
                             break;
                         case UnitTypes.Miner:
@@ -153,8 +152,8 @@ public class HexGrid : MonoBehaviour {
                 else
                 {
 
-                    SelectedUnit.transform.position = new Vector3(TouchedCellPositon.x, SelectedUnit.transform.position.y, TouchedCellPositon.z);
-                    SelectedUnit.GetComponent<UnitBehaviour>().FindCellLocation();
+                    gc.SelectedObject.transform.position = new Vector3(TouchedCellPositon.x, gc.SelectedObject.transform.position.y, TouchedCellPositon.z);
+                    gc.SelectedObject.GetComponent<UnitBehaviour>().FindCellLocation();
                 }
             }
             else

@@ -146,6 +146,7 @@ MonoBehaviour:
     type: 2}
   TurnNumber: 0
   ObjectSpawnLocation: {fileID: 379171338}
+  SelectedObject: {fileID: 0}
 --- !u!4 &19188467
 Transform:
   m_ObjectHideFlags: 0
@@ -605,7 +606,6 @@ MonoBehaviour:
     x: 0
     z: 0
   TouchedCellPositon: {x: 0, y: 0, z: 0}
-  SelectedUnit: {fileID: 0}
 --- !u!4 &173265163
 Transform:
   m_ObjectHideFlags: 0
@@ -1322,10 +1322,10 @@ MonoBehaviour:
   CostToUpgrade: {fileID: 1593655991}
   TurnNumber: {fileID: 403241057}
   NumberResources: {fileID: 350382602}
-  PerecentApprovalWH: {fileID: 941652142}
+  PercentApprovalWH: {fileID: 941652142}
   PercentApprovalPK: {fileID: 249044607}
   PercentApprovalBalance: {fileID: 2042899895}
-  PerecentWH: {fileID: 1665277833}
+  PercentWH: {fileID: 1665277833}
   PercentPK: {fileID: 36661915}
   PercentBalance: {fileID: 434663965}
   BuildingInfo: {fileID: 585799069}

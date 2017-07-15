@@ -7,6 +7,7 @@ public class PlayerInput : MonoBehaviour {
     UnitBehaviour ub;
     GameController gc;
 
+
     void Start()
     {
         gc = FindObjectOfType<GameController>();
@@ -30,11 +31,13 @@ public class PlayerInput : MonoBehaviour {
                     {
                         gc.IsBaseSelected = false;
                         gc.SetIsObjectSelected(false);
+                        gc.SelectedObject = null;
                     }
                     else
                     {
                         gc.IsBaseSelected = true;
                         gc.SetIsObjectSelected(true);
+                        gc.SelectedObject = hit.collider.gameObject;
                     }
                     
                 }

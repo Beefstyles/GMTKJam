@@ -56,7 +56,7 @@ public class UnitBehaviour : MonoBehaviour {
         RemoveLocationFromDict();
         SetHexCoords();
         hexGrid.SelectedUnitCoords = hexCoords;
-        hexGrid.SelectedUnit = gameObject;
+        gc.SelectedObject = gameObject;
         AddLocationToDict();
     }
 
@@ -77,7 +77,7 @@ public class UnitBehaviour : MonoBehaviour {
 
     void RemoveFromHexGridSelection()
     {
-        hexGrid.SelectedUnit = null;
+        gc.SelectedObject = null;
     }
 
     public void DestroySelf(HexCoordinates victimCoords)
