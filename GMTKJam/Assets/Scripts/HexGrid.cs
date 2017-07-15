@@ -45,7 +45,6 @@ public class HexGrid : MonoBehaviour {
 		hexMesh.Triangulate(cells);
         gameUI = FindObjectOfType<GameUI>();
         gc = FindObjectOfType<GameController>();
-
     }
 
 	public void ColorCell (Vector3 position, Color color) {

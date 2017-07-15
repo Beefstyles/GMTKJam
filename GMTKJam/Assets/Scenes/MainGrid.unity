@@ -198,7 +198,7 @@ GameObject:
   - component: {fileID: 36661914}
   - component: {fileID: 36661916}
   - component: {fileID: 36661915}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: '%PopPK'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -317,7 +317,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 6a3f5c7892e4b478e9e745026e6fe9f7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -429,7 +429,7 @@ GameObject:
   - component: {fileID: 90709237}
   - component: {fileID: 90709239}
   - component: {fileID: 90709238}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -503,7 +503,7 @@ GameObject:
   - component: {fileID: 91945924}
   - component: {fileID: 91945926}
   - component: {fileID: 91945925}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ActionsRemainingLabel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -631,7 +631,7 @@ GameObject:
   - component: {fileID: 195710325}
   - component: {fileID: 195710327}
   - component: {fileID: 195710326}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: SelectedObjectName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -705,7 +705,7 @@ GameObject:
   - component: {fileID: 234306357}
   - component: {fileID: 234306359}
   - component: {fileID: 234306358}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: CostToUpgradeLabel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -779,7 +779,7 @@ GameObject:
   - component: {fileID: 238232700}
   - component: {fileID: 238232702}
   - component: {fileID: 238232701}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: SelectedObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -853,7 +853,7 @@ GameObject:
   - component: {fileID: 240947562}
   - component: {fileID: 240947564}
   - component: {fileID: 240947563}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -927,7 +927,7 @@ GameObject:
   - component: {fileID: 249044606}
   - component: {fileID: 249044608}
   - component: {fileID: 249044607}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ApprovalPK
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1001,7 +1001,7 @@ GameObject:
   - component: {fileID: 350382601}
   - component: {fileID: 350382603}
   - component: {fileID: 350382602}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Resources
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1178,7 +1178,7 @@ GameObject:
   - component: {fileID: 427710560}
   - component: {fileID: 427710559}
   - component: {fileID: 427710558}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: MinerSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1354,7 +1354,7 @@ GameObject:
   - component: {fileID: 434663964}
   - component: {fileID: 434663966}
   - component: {fileID: 434663965}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: '%PopRest'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1429,7 +1429,7 @@ GameObject:
   - component: {fileID: 540658992}
   - component: {fileID: 540658991}
   - component: {fileID: 540658990}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Upgrade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1540,7 +1540,7 @@ GameObject:
   - component: {fileID: 554579023}
   - component: {fileID: 554579022}
   - component: {fileID: 554579021}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: NextTurn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1604,7 +1604,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 554579022}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 19188466}
+        m_MethodName: NextTurn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &554579022
@@ -1648,7 +1659,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 585799070}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Building
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1754,7 +1765,7 @@ GameObject:
   - component: {fileID: 652429112}
   - component: {fileID: 652429114}
   - component: {fileID: 652429113}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ObjectInfoPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1963,7 +1974,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 927236247}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ObjectSelected
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2005,7 +2016,7 @@ GameObject:
   - component: {fileID: 941652141}
   - component: {fileID: 941652143}
   - component: {fileID: 941652142}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ApprovalWH
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2215,7 +2226,7 @@ GameObject:
   - component: {fileID: 1157516186}
   - component: {fileID: 1157516185}
   - component: {fileID: 1157516184}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2316,7 +2327,7 @@ GameObject:
   - component: {fileID: 1224156135}
   - component: {fileID: 1224156137}
   - component: {fileID: 1224156136}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2390,7 +2401,7 @@ GameObject:
   - component: {fileID: 1298430889}
   - component: {fileID: 1298430891}
   - component: {fileID: 1298430890}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: '%ApprPanel'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2462,7 +2473,7 @@ GameObject:
   - component: {fileID: 1387248915}
   - component: {fileID: 1387248917}
   - component: {fileID: 1387248916}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2611,7 +2622,7 @@ GameObject:
   - component: {fileID: 1457618803}
   - component: {fileID: 1457618802}
   - component: {fileID: 1457618801}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: SoldierSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2794,7 +2805,7 @@ GameObject:
   - component: {fileID: 1547859921}
   - component: {fileID: 1547859923}
   - component: {fileID: 1547859922}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ResourcesLabel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2868,7 +2879,7 @@ GameObject:
   - component: {fileID: 1593655990}
   - component: {fileID: 1593655992}
   - component: {fileID: 1593655991}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: CostToUpgradeValue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2985,7 +2996,7 @@ GameObject:
   - component: {fileID: 1665277832}
   - component: {fileID: 1665277834}
   - component: {fileID: 1665277833}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: '%PopWH'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3111,7 +3122,7 @@ GameObject:
   - component: {fileID: 1767210329}
   - component: {fileID: 1767210331}
   - component: {fileID: 1767210330}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: '%PopPanel'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3151,7 +3162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -3182,7 +3193,7 @@ GameObject:
   - component: {fileID: 1832358697}
   - component: {fileID: 1832358699}
   - component: {fileID: 1832358698}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: MessagePanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3251,7 +3262,7 @@ GameObject:
   - component: {fileID: 1919039741}
   - component: {fileID: 1919039743}
   - component: {fileID: 1919039742}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ActionsRemaining
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3325,7 +3336,7 @@ GameObject:
   - component: {fileID: 2017650707}
   - component: {fileID: 2017650709}
   - component: {fileID: 2017650708}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Message
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3399,7 +3410,7 @@ GameObject:
   - component: {fileID: 2036443335}
   - component: {fileID: 2036443337}
   - component: {fileID: 2036443336}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3435,7 +3446,7 @@ MonoBehaviour:
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: c20e011d2e155ea4e944b268a5115b06, type: 2}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
@@ -3473,7 +3484,7 @@ GameObject:
   - component: {fileID: 2042899894}
   - component: {fileID: 2042899896}
   - component: {fileID: 2042899895}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ApprovalRest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3545,7 +3556,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 2061628953}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Unit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3631,7 +3642,7 @@ GameObject:
   - component: {fileID: 2095107872}
   - component: {fileID: 2095107871}
   - component: {fileID: 2095107870}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: SettlerSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
