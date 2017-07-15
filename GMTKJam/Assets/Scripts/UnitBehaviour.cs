@@ -13,10 +13,12 @@ public class UnitBehaviour : MonoBehaviour {
     public Material ObjectSelected, ObjectNotSelected;
     public HexCoordinates hexCoords;
     HexGrid hexGrid;
+    GameController gc;
 
     void Start()
     {
         hexGrid = FindObjectOfType<HexGrid>();
+        gc = FindObjectOfType<GameController>();
         mr = GetComponent<MeshRenderer>();
         mr.material = ObjectNotSelected;
     }
@@ -28,6 +30,7 @@ public class UnitBehaviour : MonoBehaviour {
             IsSelected = true;
             mr.material = ObjectSelected;
             FindCellLocation();
+            gc.SetIsObjectSelected(true);
         }
         else
         {
@@ -42,6 +45,7 @@ public class UnitBehaviour : MonoBehaviour {
             IsSelected = false;
             mr.material = ObjectNotSelected;
             RemoveFromHexGridSelection();
+            gc.SetIsObjectSelected(false);
         }
     }
 

@@ -26,8 +26,17 @@ public class PlayerInput : MonoBehaviour {
             {
                 if (hit.collider.tag == "PlayerBase")
                 {
-                    gc.IsBaseSelected = true;
-                    Debug.Log("Hit player base");
+                    if (gc.IsBaseSelected)
+                    {
+                        gc.IsBaseSelected = false;
+                        gc.SetIsObjectSelected(false);
+                    }
+                    else
+                    {
+                        gc.IsBaseSelected = true;
+                        gc.SetIsObjectSelected(true);
+                    }
+                    
                 }
                 if (hit.collider.tag == "Unit")
                 {

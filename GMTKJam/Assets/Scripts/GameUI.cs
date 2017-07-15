@@ -8,6 +8,7 @@ public class GameUI : MonoBehaviour {
     public Text ObjectName;
     HexGrid hexGrid;
     public GameObject BuildingInfo, UnitInfo;
+    public GameObject SelectedObjectWindow;
     GameController gc;
 
 	void Start ()
@@ -25,23 +26,38 @@ public class GameUI : MonoBehaviour {
                 ObjectName.text = hexGrid.SelectedUnit.name;
             }
         }
-
-        if (gc.IsBaseSelected)
+        if (gc.GetIsObjectSelected())
         {
-            if (!BuildingInfo.activeSelf)
+            if (!SelectedObjectWindow.activeSelf)
             {
-                BuildingInfo.SetActive(true);
-                UnitInfo.SetActive(false);
+                SelectedObjectWindow.SetActive(true);
+            }
+
+            if (gc.IsBaseSelected)
+            {
+                if (!BuildingInfo.activeSelf)
+                {
+                    BuildingInfo.SetActive(true);
+                    UnitInfo.SetActive(false);
+                }
+            }
+            else
+            {
+                if (!UnitInfo.activeSelf)
+                {
+                    BuildingInfo.SetActive(false);
+                    UnitInfo.SetActive(true);
+                }
             }
         }
         else
         {
-            if (!UnitInfo.activeSelf)
+            if (SelectedObjectWindow.activeSelf)
             {
-                BuildingInfo.SetActive(false);
-                UnitInfo.SetActive(true);
+                SelectedObjectWindow.SetActive(false);
             }
         }
+        
         
 	}
 }

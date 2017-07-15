@@ -36,6 +36,18 @@ public class GameController : MonoBehaviour {
         }
     }
 
+    public bool GetIsObjectSelected()
+    {
+        return isObjectSelected;
+    }
+
+    public void SetIsObjectSelected(bool value)
+    {
+        isObjectSelected = value;
+    }
+
+    private bool isObjectSelected;
+
     void Start ()
     {
         StartCoroutine("RefreshUnitArray");
@@ -53,7 +65,7 @@ public class GameController : MonoBehaviour {
         
     }
 
-    IEnumerator RefreshUnitArray()
+    public IEnumerator RefreshUnitArray()
     {
         yield return new WaitForSeconds(0.001F);
         unitArray = FindObjectsOfType<UnitBehaviour>();
