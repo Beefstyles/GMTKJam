@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class UnitBehaviour : MonoBehaviour {
 
-    public UnitTypes ut;
+    private UnitTypes ut;
     public int NumberOfMoves = 1;
     public int NumberOfDice = 1;
     public int NumberOfAttacks = 1;
@@ -14,9 +14,10 @@ public class UnitBehaviour : MonoBehaviour {
     public HexCoordinates hexCoords;
     HexGrid hexGrid;
     GameController gc;
-
+ 
     void Start()
     {
+        ut = GetComponent<ObjectInfo>().ut;
         hexGrid = FindObjectOfType<HexGrid>();
         gc = FindObjectOfType<GameController>();
         mr = GetComponent<MeshRenderer>();

@@ -93,10 +93,8 @@ public class HexGrid : MonoBehaviour {
     public void TouchCell (Vector3 position)
     {
         position = transform.InverseTransformPoint(position);
-
         HexCoordinates coordinates = HexCoordinates.FromPosition(position);
         touchedCellCoords = coordinates;
-        Debug.Log("Touched cell at " + coordinates.ToString());
         int index = coordinates.X + coordinates.Z * width + coordinates.Z / 2;
         HexCell cell = cells[index];
         TouchedCellPositon = cell.transform.position;

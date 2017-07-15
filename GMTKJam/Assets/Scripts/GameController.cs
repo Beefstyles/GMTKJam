@@ -84,6 +84,7 @@ public class GameController : MonoBehaviour {
     public void ObjectSpawner(GameObject objectToBeSpawned, Vector3 location)
     {
         GameObject go = Instantiate(objectToBeSpawned, location, Quaternion.identity);
+
     }
 
      

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum UnitTypes
+public class ObjectInfo : MonoBehaviour
 {
-    Solider, Miner, Settler, Base, Enemy
+    public UnitTypes ut;
 }

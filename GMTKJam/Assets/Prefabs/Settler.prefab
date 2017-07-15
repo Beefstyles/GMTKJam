@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 135710289658518312}
   - component: {fileID: 23073373361502732}
   - component: {fileID: 114477196107262342}
+  - component: {fileID: 114759717746457504}
   m_Layer: 0
   m_Name: Settler
   m_TagString: Unit
@@ -93,7 +94,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e9853f74c98ec24892d91e6c3eb9465, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ut: 2
   NumberOfMoves: 1
   NumberOfDice: 1
   NumberOfAttacks: 1
@@ -103,6 +103,18 @@ MonoBehaviour:
   hexCoords:
     x: 0
     z: 0
+--- !u!114 &114759717746457504
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1373829233743038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 695b1585981e3654ba26698e1b28608f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ut: 2
 --- !u!135 &135710289658518312
 SphereCollider:
   m_ObjectHideFlags: 1
