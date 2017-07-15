@@ -27,7 +27,6 @@ public class UnitBehaviour : MonoBehaviour {
             IsSelected = true;
             mr.material = ObjectSelected;
             FindCellLocation();
-            hexGrid.SelectedUnitCoords = hexCoords;
         }
     }
 
@@ -40,10 +39,11 @@ public class UnitBehaviour : MonoBehaviour {
         }
     }
 
-    void FindCellLocation()
+    public void FindCellLocation()
     {
         hexCoords = hexGrid.ReturnHexCoords(transform.position);
-        Debug.Log(hexCoords.ToString());
+        hexGrid.SelectedUnitCoords = hexCoords;
+        hexGrid.SelectedUnit = gameObject;
     }
 
 

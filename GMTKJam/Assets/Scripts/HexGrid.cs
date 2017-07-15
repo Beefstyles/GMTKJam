@@ -21,6 +21,9 @@ public class HexGrid : MonoBehaviour {
 
     private HexCoordinates touchedCellCoords;
     public HexCoordinates SelectedUnitCoords;
+
+    public Vector3 TouchedCellPositon;
+
     public GameObject SelectedUnit;
 
 	void Awake () {
@@ -71,7 +74,7 @@ public class HexGrid : MonoBehaviour {
 
     void Update()
     {
-        if (Input.GetMouseButton(2))
+        if (Input.GetMouseButtonDown(2))
         {
             HandleInput();
         }
@@ -97,6 +100,7 @@ public class HexGrid : MonoBehaviour {
         Debug.Log("Touched cell at " + coordinates.ToString());
         int index = coordinates.X + coordinates.Z * width + coordinates.Z / 2;
         HexCell cell = cells[index];
+        TouchedCellPositon = cell.transform.position;
 
         //cell.colour = touchedColour;
         hexMesh.Triangulate(cells);
@@ -118,7 +122,8 @@ public class HexGrid : MonoBehaviour {
         && Mathf.Abs(touchedCellCoords.Z - SelectedUnitCoords.Z) <= 1)
         {
             Debug.Log("This is a reasonable position to move");
-            
+            SelectedUnit.transform.position = new Vector3(TouchedCellPositon.x, SelectedUnit.transform.position.y, TouchedCellPositon.z);
+            SelectedUnit.GetComponent<UnitBehaviour>().FindCellLocation();
         }
         else
         {
