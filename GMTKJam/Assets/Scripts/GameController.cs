@@ -6,6 +6,21 @@ public class GameController : MonoBehaviour {
 
     UnitBehaviour[] unitArray;
 
+    private bool isBaseSelected;
+
+    public bool IsBaseSelected
+    {
+        get
+        {
+            return isBaseSelected;
+        }
+
+        set
+        {
+            isBaseSelected = value;
+        }
+    }
+
     void Start ()
     {
         StartCoroutine("RefreshUnitArray");
