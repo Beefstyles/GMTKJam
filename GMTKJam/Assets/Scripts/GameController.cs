@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameController : MonoBehaviour {
 
     UnitBehaviour[] unitArray;
+    MineHandler[] mineHandlerArray;
 
 
     private bool isBaseSelected;
@@ -158,6 +159,7 @@ public class GameController : MonoBehaviour {
         bc.ResetOnTurn();
         StartCoroutine("RefreshUnitArray");
         DeselectAllUnits();
+        RefreshAndReturnMineHandlerArray();
         foreach (var unit in unitArray)
         {
             unit.ResetOnTurn();
@@ -185,4 +187,16 @@ public class GameController : MonoBehaviour {
         }
     }
 
+
+    public void RefreshAndReturnMineHandlerArray()
+    { 
+        mineHandlerArray = FindObjectsOfType<MineHandler>();
+        if(mineHandlerArray.Length >= 1)
+        {
+            foreach (var mine in mineHandlerArray)
+            {
+                mine.AddResourcesToPool();
+            }
+        }
+    }
 }

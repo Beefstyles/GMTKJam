@@ -9,7 +9,8 @@ public class PlayerInput : MonoBehaviour
     GameController gc;
     MineHandler mh;
     OutpostHandler oh;
-
+    private bool helpPressed;
+    public GameObject HelpScreen;
 
     void Start()
     {
@@ -17,9 +18,21 @@ public class PlayerInput : MonoBehaviour
     }
     void Update()
     {
+        Help();
         HandleInput();
     }
 
+    void Help()
+    {
+        if (Input.GetKeyDown(KeyCode.F1))
+        {
+            if (helpPressed)
+            {
+
+            }
+
+        }
+    }
     void HandleInput()
     {
         Ray inputRay = Camera.main.ScreenPointToRay(Input.mousePosition);
