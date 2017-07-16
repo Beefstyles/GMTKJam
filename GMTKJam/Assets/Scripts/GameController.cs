@@ -12,6 +12,7 @@ public class GameController : MonoBehaviour {
     private int numberOfResources;
 
     public GameObject BaseObject, SoldierObject, SettlerObject, MinerObject;
+    BaseActionController baseActionController;
 
     public int TurnNumber;
     public Transform ObjectSpawnLocation;
@@ -62,6 +63,7 @@ public class GameController : MonoBehaviour {
 
     void Start ()
     {
+        baseActionController = FindObjectOfType<BaseActionController>();
         StartCoroutine("RefreshUnitArray");
         hexGrid = FindObjectOfType<HexGrid>();
         gameUI = FindObjectOfType<GameUI>();
@@ -107,6 +109,18 @@ public class GameController : MonoBehaviour {
         }
         else
         {
+            switch (objectToBeSpawned.GetComponent<ObjectInfo>().ut)
+            {
+                case (UnitTypes.Miner):
+                    NumberOfResources -= baseActionController.CostOfMiner;
+                    break;
+                case (UnitTypes.Settler):
+                    NumberOfResources -= baseActionController.CostOfSettler;
+                    break;
+                case (UnitTypes.Soldier):
+                    NumberOfResources -= baseActionController.CostOfSoldier;
+                    break;
+            }
             Instantiate(objectToBeSpawned, location, Quaternion.identity);
             bc.NumberOfActionsRemaining--;
         }
