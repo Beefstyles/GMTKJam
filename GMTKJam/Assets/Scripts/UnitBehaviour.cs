@@ -123,7 +123,7 @@ public class UnitBehaviour : MonoBehaviour {
             {
                 case (UnitTypes.Miner):
                     pt.AlterPercentApproval(Random.Range(-2, 2), PoliticsParty.Warhawk);
-                    pt.AlterPercentApproval(Random.Range(-2, 2), PoliticsParty.Peacenik);
+                    pt.AlterPercentApproval(Random.Range(1, 3), PoliticsParty.Peacenik);
                     pt.AlterPercentApproval(Random.Range(-3, 3), PoliticsParty.Balance);
                     break;
                 case (UnitTypes.Soldier):
@@ -141,7 +141,6 @@ public class UnitBehaviour : MonoBehaviour {
             NumberOfActions++;
             maxActions++;
         }
-        
     }
 
     public void HandleAction()
@@ -152,10 +151,16 @@ public class UnitBehaviour : MonoBehaviour {
             switch (gc.SelectedObject.GetComponent<ObjectInfo>().ut)
             {
                 case (UnitTypes.Miner):
+                    pt.AlterPercentApproval(Random.Range(-2, 2), PoliticsParty.Warhawk);
+                    pt.AlterPercentApproval(Random.Range(2, 5), PoliticsParty.Peacenik);
+                    pt.AlterPercentApproval(Random.Range(-2, 3), PoliticsParty.Balance);
                     break;
                 case (UnitTypes.Soldier):
                     break;
                 case (UnitTypes.Settler):
+                    pt.AlterPercentApproval(Random.Range(0, 2), PoliticsParty.Warhawk);
+                    pt.AlterPercentApproval(Random.Range(-2, 3), PoliticsParty.Peacenik);
+                    pt.AlterPercentApproval(Random.Range(0, 5), PoliticsParty.Balance);
                     break;
             }
             StartCoroutine(gameUI.SetMessage("Actioned : " + gc.SelectedObject.GetComponent<ObjectInfo>().ut.ToString()));
