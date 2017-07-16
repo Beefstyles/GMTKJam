@@ -26,6 +26,8 @@ public class HexGrid : MonoBehaviour {
 
     GameUI gameUI;
     GameController gc;
+    public AudioSource attackNoise;
+    public AudioSource moveNoise;
 
 	void Awake () {
 		gridCanvas = GetComponentInChildren<Canvas>();
@@ -136,6 +138,8 @@ public class HexGrid : MonoBehaviour {
                                     gc.CheckDeathCoords(touchedCellCoords);
                                     StartCoroutine(gameUI.SetMessage("Destroyed enemy"));
                                     gc.SelectedObject.GetComponent<UnitBehaviour>().NumberOfActions--;
+                                    gc.NumberOfResources += Random.Range(2, 10);
+                                    attackNoise.Play();
                                     break;
                                 default:
                                     StartCoroutine(gameUI.SetMessage("Cannot move here"));
@@ -146,8 +150,9 @@ public class HexGrid : MonoBehaviour {
                         {
                             gc.SelectedObject.transform.position = new Vector3(TouchedCellPositon.x, gc.SelectedObject.transform.position.y, TouchedCellPositon.z);
                             gc.SelectedObject.GetComponent<UnitBehaviour>().FindCellLocation();
-                            gc.NumberOfResources += Random.Range(2, 10);
+
                             gc.SelectedObject.GetComponent<UnitBehaviour>().NumberOfActions--;
+
                         }
                     }
                     else

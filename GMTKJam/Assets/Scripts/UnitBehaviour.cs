@@ -166,7 +166,8 @@ public class UnitBehaviour : MonoBehaviour {
 
     public void ResetOnTurn()
     {
-        NumberOfActions = maxActions;
+        NumberOfActions++;
+        NumberOfActions = Mathf.Clamp(NumberOfActions, maxActions, maxActions);
         HandleEnemyMovement();
     }
 
