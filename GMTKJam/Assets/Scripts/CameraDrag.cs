@@ -22,7 +22,7 @@ public class CameraDrag : MonoBehaviour {
 
     void PanMouse()
     {
-        if (Input.GetMouseButton(1))
+        if (Input.GetMouseButton(2))
         {
             float h = HorizontalSpeed * Input.GetAxis("Mouse Y");
             float v = VerticalSpeed * Input.GetAxis("Mouse X");

@@ -4,5 +4,5 @@ using UnityEngine;
 
 public enum UnitTypes
 {
-    Soldier, Miner, Settler, Base, Enemy
+    Soldier, Miner, Settler, Base, Enemy, Outpost, Mine
 }

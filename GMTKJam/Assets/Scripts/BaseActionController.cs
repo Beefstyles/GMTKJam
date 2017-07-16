@@ -42,7 +42,7 @@ public class BaseActionController : MonoBehaviour {
         {
             if (CostOfMiner >= gc.NumberOfResources)
             {
-                gc.NumberOfResources -= CostOfMiner;
+                
                 gc.ObjectSpawner(gc.MinerObject, gc.ObjectSpawnLocation.position);
             }
             else
@@ -61,7 +61,7 @@ public class BaseActionController : MonoBehaviour {
         {
             if (CostOfSettler >= gc.NumberOfResources)
             {
-                gc.NumberOfResources -= CostOfSettler;
+                
                 gc.ObjectSpawner(gc.SettlerObject, gc.ObjectSpawnLocation.position);
             }
             else
@@ -74,4 +74,5 @@ public class BaseActionController : MonoBehaviour {
             StartCoroutine(gameUI.SetMessage("No actions remaining"));
         }
     }
+
 }

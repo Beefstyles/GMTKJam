@@ -20,7 +20,7 @@ public class GameController : MonoBehaviour {
     HexCoordinates spawnTargetCoords;
     GameUI gameUI;
     BaseController bc;
-
+    PoliticsTracker pt;
     public GameObject SelectedObject;
 
     public bool IsBaseSelected
@@ -63,6 +63,7 @@ public class GameController : MonoBehaviour {
 
     void Start ()
     {
+        pt = FindObjectOfType<PoliticsTracker>();
         baseActionController = FindObjectOfType<BaseActionController>();
         StartCoroutine("RefreshUnitArray");
         hexGrid = FindObjectOfType<HexGrid>();
@@ -113,11 +114,20 @@ public class GameController : MonoBehaviour {
             {
                 case (UnitTypes.Miner):
                     NumberOfResources -= baseActionController.CostOfMiner;
+                    pt.AlterPercentApproval(Random.Range(-2, 2), PoliticsParty.Warhawk);
+                    pt.AlterPercentApproval(Random.Range(2, 5), PoliticsParty.Peacenik);
+                    pt.AlterPercentApproval(Random.Range(0, 1), PoliticsParty.Balance);
                     break;
                 case (UnitTypes.Settler):
+                    pt.AlterPercentApproval(Random.Range(-2, 2), PoliticsParty.Warhawk);
+                    pt.AlterPercentApproval(Random.Range(2, 5), PoliticsParty.Peacenik);
+                    pt.AlterPercentApproval(Random.Range(0, 2), PoliticsParty.Balance);
                     NumberOfResources -= baseActionController.CostOfSettler;
                     break;
                 case (UnitTypes.Soldier):
+                    pt.AlterPercentApproval(Random.Range(2, 5), PoliticsParty.Warhawk);
+                    pt.AlterPercentApproval(Random.Range(-4, -2), PoliticsParty.Peacenik);
+                    pt.AlterPercentApproval(Random.Range(-2, 2), PoliticsParty.Balance);
                     NumberOfResources -= baseActionController.CostOfSoldier;
                     break;
             }

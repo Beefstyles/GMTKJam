@@ -153,7 +153,7 @@ public class UnitBehaviour : MonoBehaviour {
                 case (UnitTypes.Miner):
                     pt.AlterPercentApproval(Random.Range(-2, 2), PoliticsParty.Warhawk);
                     pt.AlterPercentApproval(Random.Range(2, 5), PoliticsParty.Peacenik);
-                    pt.AlterPercentApproval(Random.Range(-2, 3), PoliticsParty.Balance);
+                    pt.AlterPercentApproval(Random.Range(0, 3), PoliticsParty.Balance);
                     break;
                 case (UnitTypes.Soldier):
                     break;
