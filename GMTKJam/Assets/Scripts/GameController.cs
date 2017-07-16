@@ -104,7 +104,7 @@ public class GameController : MonoBehaviour {
             switch (spawnUt)
             {
                 default:
-                    StartCoroutine(gameUI.SetMessage("Move Out unit from spawn Zone"));
+                    StartCoroutine(gameUI.SetMessage("Move out unit from spawn Zone"));
                     break;
             }
         }

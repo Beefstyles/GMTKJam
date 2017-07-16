@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerInput : MonoBehaviour {
+public class PlayerInput : MonoBehaviour
+{
 
     UnitBehaviour ub;
     GameController gc;
@@ -14,7 +15,7 @@ public class PlayerInput : MonoBehaviour {
     {
         gc = FindObjectOfType<GameController>();
     }
-	void Update ()
+    void Update()
     {
         HandleInput();
     }
@@ -42,14 +43,14 @@ public class PlayerInput : MonoBehaviour {
                         gc.SelectedObject = hit.collider.gameObject;
                         gc.DeselectAllUnits();
                     }
-                    
+
                 }
                 if (hit.collider.tag == "Unit")
                 {
                     ub = hit.collider.GetComponent<UnitBehaviour>();
-                    if(ub != null)
+                    if (ub != null)
                     {
-                        if(hit.collider.GetComponent<ObjectInfo>().ut != UnitTypes.Enemy)
+                        if (hit.collider.GetComponent<ObjectInfo>().ut != UnitTypes.Enemy)
                         {
                             gc.DeselectAllUnits();
                             ub.SelectUnit();
@@ -60,17 +61,12 @@ public class PlayerInput : MonoBehaviour {
 
                 if (hit.collider.tag == "AncBuilding")
                 {
+                    gc.SelectedObject = hit.collider.gameObject;
                     mh = hit.collider.GetComponent<MineHandler>();
                     oh = hit.collider.GetComponent<OutpostHandler>();
-
-                    if (mh != null)
-                    {
-                        mh.DisplayValues();
-                    }
-
-
-                    }
+                }
             }
         }
     }
 }
+

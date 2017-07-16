@@ -32,8 +32,4 @@ public class MineHandler : MonoBehaviour {
         hexCoords = hexGrid.ReturnHexCoords(transform.position);
     }
 
-    public void DisplayValues()
-    {
-        gameUI.DisplayMineInfo(NumberOfResourcesToAdd, UpgradeCost);
-    }
 }
