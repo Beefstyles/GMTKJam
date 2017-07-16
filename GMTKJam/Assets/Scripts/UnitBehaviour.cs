@@ -167,10 +167,12 @@ public class UnitBehaviour : MonoBehaviour {
 
     public void ResetOnTurn()
     {
-        NumberOfActions++;
-        NumberOfActions = Mathf.Clamp(NumberOfActions, maxActions, maxActions);
-        gc.RefreshUnitArray();
-        //HandleEnemyMovement();
+        if(ut != UnitTypes.Enemy)
+        {
+            NumberOfActions = maxActions;
+            NumberOfActions = Mathf.Clamp(NumberOfActions, maxActions, maxActions);
+            //HandleEnemyMovement();
+        }
     }
 
     public void HandleUpgrade()

@@ -113,32 +113,34 @@ public class GameController : MonoBehaviour {
         }
         else
         {
-            
-            switch (objectToBeSpawned.GetComponent<ObjectInfo>().ut)
+            if(bc.NumberOfActionsRemaining > 0)
             {
-                case (UnitTypes.Miner):
-                    NumberOfResources -= baseActionController.CostOfMiner;
-                    pt.AlterPercentApproval(Random.Range(-2, 2), PoliticsParty.Warhawk);
-                    pt.AlterPercentApproval(Random.Range(2, 5), PoliticsParty.Peacenik);
-                    pt.AlterPercentApproval(Random.Range(0, 1), PoliticsParty.Balance);
-                    break;
-                case (UnitTypes.Settler):
-                    pt.AlterPercentApproval(Random.Range(-2, 2), PoliticsParty.Warhawk);
-                    pt.AlterPercentApproval(Random.Range(2, 5), PoliticsParty.Peacenik);
-                    pt.AlterPercentApproval(Random.Range(0, 2), PoliticsParty.Balance);
-                    NumberOfResources -= baseActionController.CostOfSettler;
-                    break;
-                case (UnitTypes.Soldier):
-                    pt.AlterPercentApproval(Random.Range(2, 5), PoliticsParty.Warhawk);
-                    pt.AlterPercentApproval(Random.Range(-4, -2), PoliticsParty.Peacenik);
-                    pt.AlterPercentApproval(Random.Range(-2, 2), PoliticsParty.Balance);
-                    NumberOfResources -= baseActionController.CostOfSoldier;
-                    break;
+                switch (objectToBeSpawned.GetComponent<ObjectInfo>().ut)
+                {
+                    case (UnitTypes.Miner):
+                        NumberOfResources -= baseActionController.CostOfMiner;
+                        pt.AlterPercentApproval(Random.Range(-2, 2), PoliticsParty.Warhawk);
+                        pt.AlterPercentApproval(Random.Range(2, 5), PoliticsParty.Peacenik);
+                        pt.AlterPercentApproval(Random.Range(0, 1), PoliticsParty.Balance);
+                        break;
+                    case (UnitTypes.Settler):
+                        pt.AlterPercentApproval(Random.Range(-2, 2), PoliticsParty.Warhawk);
+                        pt.AlterPercentApproval(Random.Range(2, 5), PoliticsParty.Peacenik);
+                        pt.AlterPercentApproval(Random.Range(0, 2), PoliticsParty.Balance);
+                        NumberOfResources -= baseActionController.CostOfSettler;
+                        break;
+                    case (UnitTypes.Soldier):
+                        pt.AlterPercentApproval(Random.Range(2, 5), PoliticsParty.Warhawk);
+                        pt.AlterPercentApproval(Random.Range(-4, -2), PoliticsParty.Peacenik);
+                        pt.AlterPercentApproval(Random.Range(-2, 2), PoliticsParty.Balance);
+                        NumberOfResources -= baseActionController.CostOfSoldier;
+                        break;
+                }
+                Instantiate(objectToBeSpawned, location, Quaternion.identity);
+                StartCoroutine("RefreshUnitArray");
+                bc.NumberOfActionsRemaining--;
             }
-            Instantiate(objectToBeSpawned, location, Quaternion.identity);
-            bc.NumberOfActionsRemaining--;
         }
-        
     }
 
     public void CheckDeathCoords(HexCoordinates victimCoords)
@@ -154,6 +156,8 @@ public class GameController : MonoBehaviour {
     {
         TurnNumber++;
         bc.ResetOnTurn();
+        StartCoroutine("RefreshUnitArray");
+        DeselectAllUnits();
         foreach (var unit in unitArray)
         {
             unit.ResetOnTurn();

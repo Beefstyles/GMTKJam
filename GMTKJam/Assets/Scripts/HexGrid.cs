@@ -134,7 +134,7 @@ public class HexGrid : MonoBehaviour {
                             switch (targetUT)
                             {
                                 case UnitTypes.Enemy:
-                                    gc.RefreshUnitArray();
+                                    gc.StartCoroutine("RefreshUnitArray");
                                     gc.CheckDeathCoords(touchedCellCoords);
                                     StartCoroutine(gameUI.SetMessage("Destroyed enemy"));
                                     gc.SelectedObject.GetComponent<UnitBehaviour>().NumberOfActions--;

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BaseController : MonoBehaviour {
 
-    public int NumberOfActionsRemaining = 1;
+    public int NumberOfActionsRemaining;
 
     [SerializeField]
     private int maxActions = 1;
@@ -15,6 +15,7 @@ public class BaseController : MonoBehaviour {
 
     void Start()
     {
+        ResetOnTurn();
         ut = GetComponent<ObjectInfo>().ut;
         hexGrid = FindObjectOfType<HexGrid>();
         SetHexCoords();
