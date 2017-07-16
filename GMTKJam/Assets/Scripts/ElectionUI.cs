@@ -7,7 +7,7 @@ public class ElectionUI : MonoBehaviour {
 
     public Text ElectionText, ElectionNumber, ElectionResult, ElectionSwing;
     PoliticsTracker pt;
-    public GameObject ElectionScreen, GameOnScreen;
+    public GameObject ElectionScreen, GameOnScreen, GameOnObjects;
     public Button ContinueOrRestartBtn;
     private bool electionWon;
 
@@ -19,9 +19,10 @@ public class ElectionUI : MonoBehaviour {
 	public void SetElectionScreen()
     {
         ElectionScreen.SetActive(true);
+        GameOnObjects.SetActive(false);
         GameOnScreen.SetActive(false);
-        ElectionResult.text = pt.ElectionResult.ToString();
-        ElectionSwing.text = pt.ElectionResult.ToString();
+        ElectionResult.text = pt.ElectionResult.ToString() + "%";
+        ElectionSwing.text = pt.ElectionResult.ToString() + "%";
         ElectionNumber.text = pt.currentElectionNumber.ToString();
         if (pt.ElectionResult >= 50)
         {
@@ -54,7 +55,11 @@ public class ElectionUI : MonoBehaviour {
         {
             ElectionScreen.SetActive(false);
             GameOnScreen.SetActive(true);
+            GameOnObjects.SetActive(true);
             pt.currentElectionNumber++;
+            pt.AlterPercentApproval(-2, PoliticsParty.Balance);
+            pt.AlterPercentApproval(-2, PoliticsParty.Peacenik);
+            pt.AlterPercentApproval(-2, PoliticsParty.Warhawk);
         }
         else
         {

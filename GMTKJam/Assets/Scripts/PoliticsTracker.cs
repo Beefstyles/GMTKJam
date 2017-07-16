@@ -9,7 +9,7 @@ public class PoliticsTracker : MonoBehaviour {
 
     public int ElectionResult;
     public int PreviousElectionResult;
-    public int currentElectionNumber = 0;
+    public int currentElectionNumber = 1;
 
 	public void AlterPercentApproval(int percentChange, PoliticsParty party)
     {
