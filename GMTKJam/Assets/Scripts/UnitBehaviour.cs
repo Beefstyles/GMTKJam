@@ -17,6 +17,7 @@ public class UnitBehaviour : MonoBehaviour {
     GameController gc;
     GameUI gameUI;
     PoliticsTracker pt;
+    public GameObject MineObject, OutpostObject;
  
     void Start()
     {
@@ -30,6 +31,31 @@ public class UnitBehaviour : MonoBehaviour {
         mr.material = ObjectNotSelected;
         SetHexCoords();
         AddLocationToDict();
+    }
+
+    void DetermineCostForAction()
+    {
+        switch (ut)
+        {
+            case UnitTypes.Soldier:
+                break;
+            case UnitTypes.Miner:
+                CostForAction = 15;
+                break;
+            case UnitTypes.Settler:
+                CostForAction = 10;
+                break;
+            case UnitTypes.Base:
+                break;
+            case UnitTypes.Enemy:
+                break;
+            case UnitTypes.Outpost:
+                break;
+            case UnitTypes.Mine:
+                break;
+            default:
+                break;
+        }
     }
 
 	public void SelectUnit()
@@ -154,6 +180,7 @@ public class UnitBehaviour : MonoBehaviour {
                     pt.AlterPercentApproval(Random.Range(-2, 2), PoliticsParty.Warhawk);
                     pt.AlterPercentApproval(Random.Range(2, 5), PoliticsParty.Peacenik);
                     pt.AlterPercentApproval(Random.Range(0, 3), PoliticsParty.Balance);
+
                     break;
                 case (UnitTypes.Soldier):
                     break;
@@ -165,6 +192,11 @@ public class UnitBehaviour : MonoBehaviour {
             }
             StartCoroutine(gameUI.SetMessage("Actioned : " + gc.SelectedObject.GetComponent<ObjectInfo>().ut.ToString()));
         }
+    }
+
+    private void HandleObjectSpawn()
+    {
+        DestroySelf(hexCoords);
     }
 
 }
