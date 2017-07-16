@@ -113,6 +113,7 @@ public class GameController : MonoBehaviour {
         }
         else
         {
+            
             switch (objectToBeSpawned.GetComponent<ObjectInfo>().ut)
             {
                 case (UnitTypes.Miner):

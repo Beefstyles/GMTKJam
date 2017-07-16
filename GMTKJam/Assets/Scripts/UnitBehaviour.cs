@@ -27,12 +27,13 @@ public class UnitBehaviour : MonoBehaviour {
         pt = FindObjectOfType<PoliticsTracker>();
 
         gc = FindObjectOfType<GameController>();
-        mr = GetComponent<MeshRenderer>();
-        mr.material = ObjectNotSelected;
+        //mr = GetComponent<MeshRenderer>();
+        //mr.material = ObjectNotSelected;
         SetHexCoords();
         AddLocationToDict();
         DetermineCostForAction();
         DetermineCostForUpgrade();
+        gc.RefreshUnitArray();
     }
 
     void DetermineCostForAction()
@@ -92,7 +93,7 @@ public class UnitBehaviour : MonoBehaviour {
         if (!IsSelected)
         {
             IsSelected = true;
-            mr.material = ObjectSelected;
+            //mr.material = ObjectSelected;
             FindCellLocation();
             gc.SetIsObjectSelected(true);
         }
@@ -107,7 +108,7 @@ public class UnitBehaviour : MonoBehaviour {
         if (IsSelected)
         {
             IsSelected = false;
-            mr.material = ObjectNotSelected;
+            //mr.material = ObjectNotSelected;
             RemoveFromHexGridSelection();
             gc.SetIsObjectSelected(false);
         }
