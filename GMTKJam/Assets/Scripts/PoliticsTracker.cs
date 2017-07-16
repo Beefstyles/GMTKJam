@@ -14,53 +14,22 @@ public class PoliticsTracker : MonoBehaviour {
             case PoliticsParty.Warhawk:
                 if(PercentApprovalWH <= 100 && PercentApprovalWH >= 0)
                 {
-                    if((PercentApprovalWH + percentChange) > 100)
-                    {
-                        PercentApprovalWH = 100;
-                    }
-                    else if ((PercentApprovalWH + percentChange) < 0)
-                    {
-                        PercentApprovalWH = 0;
-                    }
-                    else
-                    {
-                        PercentApprovalWH += percentChange;
-                    }
-                    
+                    PercentApprovalWH += percentChange;
+                    PercentApprovalWH = Mathf.Clamp(PercentApprovalWH, 0, 100);
                 }
                 break;
             case PoliticsParty.Peacenik:
                 if (PercentApprovalPK <= 100 && PercentApprovalPK >= 0)
                 {
-                    if ((PercentApprovalPK + percentChange) > 100)
-                    {
-                        PercentApprovalPK = 100;
-                    }
-                    else if ((PercentApprovalPK + percentChange) < 0)
-                    {
-                        PercentApprovalPK = 0;
-                    }
-                    else
-                    {
-                        PercentApprovalPK += percentChange;
-                    }
+                    PercentApprovalPK += percentChange;
+                    PercentApprovalPK = Mathf.Clamp(PercentApprovalPK, 0, 100);
                 }
                 break;
             case PoliticsParty.Balance:
                 if (PercentApprovalBalance <= 100 && PercentApprovalBalance >= 0)
                 {
-                    if ((PercentApprovalBalance + percentChange) > 100)
-                    {
-                        PercentApprovalBalance = 100;
-                    }
-                    else if ((PercentApprovalBalance + percentChange) < 0)
-                    {
-                        PercentApprovalBalance = 0;
-                    }
-                    else
-                    {
-                        PercentApprovalBalance += percentChange;
-                    }
+                    PercentApprovalBalance += percentChange;
+                    PercentApprovalBalance = Mathf.Clamp(PercentApprovalBalance, 0, 100);
                 }
                 break;
         }
@@ -71,15 +40,16 @@ public class PoliticsTracker : MonoBehaviour {
         Debug.Log("WarhawkChange" + WarhawkChange);
         int PeacenikChange = Random.Range(-5, 5);
 
-        if (PercentWH > 0 && PercentWH < 100)
+        if (PercentWH >= 0 && PercentWH <= 100)
         {
             PercentWH += WarhawkChange;
-            Debug.Log("Actually does something");
+            PercentWH = Mathf.Clamp(PercentWH, 5, 100);
         }
 
         if (PercentPK > 0 && PercentPK < 100)
         {
             PercentPK += PeacenikChange;
+            PercentPK = Mathf.Clamp(PercentPK, 5, 100);
         }
 
         PercentBalance = 100 - PercentWH - PercentPK;
