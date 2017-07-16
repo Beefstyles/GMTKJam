@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BaseController : MonoBehaviour {
 
-    public int NumberOfActionsRemaining;
+    public int NumberOfActionsRemaining = 1;
 
     [SerializeField]
     private int maxActions = 1;
