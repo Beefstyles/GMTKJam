@@ -180,7 +180,7 @@ public class UnitBehaviour : MonoBehaviour {
                     pt.AlterPercentApproval(Random.Range(-2, 2), PoliticsParty.Warhawk);
                     pt.AlterPercentApproval(Random.Range(2, 5), PoliticsParty.Peacenik);
                     pt.AlterPercentApproval(Random.Range(0, 3), PoliticsParty.Balance);
-
+                    HandleObjectSpawn();
                     break;
                 case (UnitTypes.Soldier):
                     break;
@@ -188,6 +188,7 @@ public class UnitBehaviour : MonoBehaviour {
                     pt.AlterPercentApproval(Random.Range(0, 2), PoliticsParty.Warhawk);
                     pt.AlterPercentApproval(Random.Range(-2, 3), PoliticsParty.Peacenik);
                     pt.AlterPercentApproval(Random.Range(0, 5), PoliticsParty.Balance);
+                    HandleObjectSpawn();
                     break;
             }
             StartCoroutine(gameUI.SetMessage("Actioned : " + gc.SelectedObject.GetComponent<ObjectInfo>().ut.ToString()));
@@ -197,9 +198,17 @@ public class UnitBehaviour : MonoBehaviour {
     private void HandleObjectSpawn()
     {
         RemoveLocationFromDict();
+        if(ut == UnitTypes.Miner)
+        {
+            Instantiate(MineObject, transform.position, Quaternion.identity);
+            StartCoroutine(gameUI.SetMessage("Created mine at : " + hexCoords.ToString()));
+        }
+        else if (ut == UnitTypes.Settler)
+        {
+            Instantiate(OutpostObject, transform.position, Quaternion.identity);
+            StartCoroutine(gameUI.SetMessage("Created outpost at : " + hexCoords.ToString()));
+        }
         Destroy(this.gameObject);
-
-
     }
 
 }

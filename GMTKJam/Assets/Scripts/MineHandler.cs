@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class MineHandler : MonoBehaviour {
 
-    private int NumberOfResourcesToAdd;
-    private int UpgradeCost;
+    public int NumberOfResourcesToAdd;
+    public int UpgradeCost;
     public int NumberOfActionsRemaining;
     private int maxActions;
     GameController gc;
