@@ -54,8 +54,10 @@
      <Compile Include="Assets\Scripts\BaseActionController.cs" />
      <Compile Include="Assets\Scripts\BaseController.cs" />
      <Compile Include="Assets\Scripts\CameraDrag.cs" />
+     <Compile Include="Assets\Scripts\ElectionUI.cs" />
      <Compile Include="Assets\Scripts\GameController.cs" />
      <Compile Include="Assets\Scripts\GameUI.cs" />
+     <Compile Include="Assets\Scripts\HandleElection.cs" />
      <Compile Include="Assets\Scripts\HexCell.cs" />
      <Compile Include="Assets\Scripts\HexCoordinates.cs" />
      <Compile Include="Assets\Scripts\HexGrid.cs" />

@@ -7,6 +7,10 @@ public class PoliticsTracker : MonoBehaviour {
     public int PercentApprovalWH, PercentApprovalPK, PercentApprovalBalance;
     public int PercentWH, PercentPK, PercentBalance;
 
+    public int ElectionResult;
+    public int PreviousElectionResult;
+    public int currentElectionNumber = 0;
+
 	public void AlterPercentApproval(int percentChange, PoliticsParty party)
     {
         switch (party)
@@ -53,7 +57,10 @@ public class PoliticsTracker : MonoBehaviour {
         }
 
         PercentBalance = 100 - PercentWH - PercentPK;
+    }
 
-        
+    public void CalculateElectionResult()
+    {
+        ElectionResult = (PercentApprovalWH / 100 * PercentWH) + (PercentApprovalPK / 100 * PercentPK) + (PercentApprovalBalance / 100 * PercentBalance);
     }
 }
