@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,6 +11,7 @@ public class ElectionUI : MonoBehaviour {
     public GameObject ElectionScreen, GameOnScreen, GameOnObjects;
     public Button ContinueOrRestartBtn;
     private bool electionWon;
+    private decimal electionSwing;
 
 
     void Start()
@@ -21,8 +23,9 @@ public class ElectionUI : MonoBehaviour {
         ElectionScreen.SetActive(true);
         GameOnObjects.SetActive(false);
         GameOnScreen.SetActive(false);
-        ElectionResult.text = pt.ElectionResult.ToString() + "%";
-        ElectionSwing.text = pt.ElectionResult.ToString() + "%";
+        ElectionResult.text = Math.Round(pt.ElectionResult,2).ToString() + "%";
+        electionSwing = pt.ElectionResult - pt.PreviousElectionResult;
+        ElectionSwing.text = Math.Round(electionSwing, 2).ToString() + "%";
         ElectionNumber.text = pt.currentElectionNumber.ToString();
         if (pt.ElectionResult >= 50)
         {
@@ -57,9 +60,11 @@ public class ElectionUI : MonoBehaviour {
             GameOnScreen.SetActive(true);
             GameOnObjects.SetActive(true);
             pt.currentElectionNumber++;
-            pt.AlterPercentApproval(-2, PoliticsParty.Balance);
-            pt.AlterPercentApproval(-2, PoliticsParty.Peacenik);
-            pt.AlterPercentApproval(-2, PoliticsParty.Warhawk);
+            pt.AlterPercentApproval(UnityEngine.Random.Range(-3, 2), PoliticsParty.Balance);
+            pt.AlterPercentApproval(UnityEngine.Random.Range(-3, 2), PoliticsParty.Peacenik);
+            pt.AlterPercentApproval(UnityEngine.Random.Range(-3, 2), PoliticsParty.Warhawk);
+            pt.PreviousElectionResult = pt.ElectionResult;
+
         }
         else
         {

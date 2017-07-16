@@ -7,8 +7,8 @@ public class PoliticsTracker : MonoBehaviour {
     public int PercentApprovalWH, PercentApprovalPK, PercentApprovalBalance;
     public int PercentWH, PercentPK, PercentBalance;
 
-    public int ElectionResult;
-    public int PreviousElectionResult;
+    public decimal ElectionResult;
+    public decimal PreviousElectionResult;
     public int currentElectionNumber = 1;
 
 	public void AlterPercentApproval(int percentChange, PoliticsParty party)
@@ -65,7 +65,7 @@ public class PoliticsTracker : MonoBehaviour {
         decimal VotedPK = (decimal)PercentApprovalPK / 100 * PercentPK;
         decimal VotedBalance = (decimal)PercentApprovalBalance / 100 * PercentBalance;
 
-        ElectionResult = (int)(VotedWH + VotedPK + VotedBalance); 
+        ElectionResult = (VotedWH + VotedPK + VotedBalance); 
         Debug.Log(VotedWH);
     }
 }
