@@ -13,7 +13,6 @@ public class OutpostHandler : MonoBehaviour {
         hexGrid = FindObjectOfType<HexGrid>();
         SetHexCoords();
         gc = FindObjectOfType<GameController>();
-
     }
 
     private void SetHexCoords()

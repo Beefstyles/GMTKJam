@@ -6,6 +6,8 @@ public class PlayerInput : MonoBehaviour {
 
     UnitBehaviour ub;
     GameController gc;
+    MineHandler mh;
+    OutpostHandler oh;
 
 
     void Start()
@@ -53,10 +55,21 @@ public class PlayerInput : MonoBehaviour {
                             ub.SelectUnit();
                             gc.IsBaseSelected = false;
                         }
-                        
                     }
-                    
                 }
+
+                if (hit.collider.tag == "AncBuilding")
+                {
+                    mh = hit.collider.GetComponent<MineHandler>();
+                    oh = hit.collider.GetComponent<OutpostHandler>();
+
+                    if (mh != null)
+                    {
+                        mh.DisplayValues();
+                    }
+
+
+                    }
             }
         }
     }

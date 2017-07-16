@@ -7,9 +7,10 @@ public class GameUI : MonoBehaviour {
 
     public Text ObjectType, MessageText, ActionsRemaining, CostToUpgrade, CostForAction, TurnNumber, NumberResources, 
         PercentApprovalWH, PercentApprovalPK, PercentApprovalBalance,
-        PercentWH, PercentPK, PercentBalance;
+        PercentWH, PercentPK, PercentBalance,
+        MineResourceAbility, MineUpgradeCost;
 
-    public GameObject BuildingInfo, UnitInfo;
+    public GameObject BuildingInfo, UnitInfo, MineInfo, OutpostInfo;
     public GameObject SelectedObjectWindow;
     GameController gc;
     PoliticsTracker pt;
@@ -146,5 +147,12 @@ public class GameUI : MonoBehaviour {
         {
             PercentBalance.text = pt.PercentBalance.ToString() + "%";
         }
+    }
+
+    public void DisplayMineInfo(int numberOfResourcesAdded, int upgradeCost)
+    {
+        MineInfo.SetActive(true);
+        NumberResources.text = numberOfResourcesAdded.ToString();
+        MineUpgradeCost.text = upgradeCost.ToString();
     }
 }
