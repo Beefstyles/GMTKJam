@@ -20,11 +20,26 @@ GameObject:
   m_Component:
   - component: {fileID: 4818679088653796}
   - component: {fileID: 65165639249777188}
-  - component: {fileID: 114470427818694212}
   - component: {fileID: 114922789838801252}
+  - component: {fileID: 114109623513470590}
   m_Layer: 0
   m_Name: Outpost
   m_TagString: AncBuilding
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1723938618095420
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4004110763461078}
+  m_Layer: 0
+  m_Name: SpawnLoc
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -76,6 +91,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &4004110763461078
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1723938618095420}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.7}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4818679088653796}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4666347242300456
 Transform:
   m_ObjectHideFlags: 1
@@ -110,10 +138,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1265247009656602}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -70.83185, y: 54.06263, z: -3.9143581}
+  m_LocalPosition: {x: -43.64838, y: 30.588945, z: -49.641674}
   m_LocalScale: {x: 10, y: 1, z: 10}
   m_Children:
   - {fileID: 4666347242300456}
+  - {fileID: 4004110763461078}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -182,7 +211,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114470427818694212
+--- !u!114 &114109623513470590
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -190,15 +219,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1265247009656602}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7cd2f5092585cbd4a9eaf289f27d3152, type: 3}
+  m_Script: {fileID: 11500000, guid: 13f9fa1663738824aa0eb06b00363079, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   NumberOfActionsRemaining: 0
-  maxActions: 1
-  Name: MainBase
-  hexCoords:
-    x: 0
-    z: 0
+  SpawnLocation: {fileID: 4004110763461078}
+  CostOfMiner: 5
+  Miner: {fileID: 1373829233743038, guid: 2822d8e0f21a31249bf67f1fb3e28f9c, type: 2}
 --- !u!114 &114922789838801252
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -8,7 +8,8 @@ public class GameUI : MonoBehaviour {
     public Text ObjectType, MessageText, ActionsRemaining, CostToUpgrade, CostForAction, TurnNumber, NumberResources, 
         PercentApprovalWH, PercentApprovalPK, PercentApprovalBalance,
         PercentWH, PercentPK, PercentBalance,
-        MineResourceAbility, MineUpgradeCost;
+        MineResourceAbility, MineUpgradeCost,
+        CostOfMiner;
 
     public GameObject BuildingInfo, UnitInfo, MineInfo, OutpostInfo;
     public GameObject SelectedObjectWindow;
@@ -113,6 +114,8 @@ public class GameUI : MonoBehaviour {
                 {
                     ActionsRemaining.text = gc.SelectedObject.GetComponent<OutpostHandler>().NumberOfActionsRemaining.ToString();
                 }
+                CostOfMiner.text = gc.SelectedObject.GetComponent<OutpostHandler>().CostOfMiner.ToString();
+
             }
             else if (gc.SelectedObject.GetComponent<ObjectInfo>().ut == UnitTypes.Soldier 
                 || gc.SelectedObject.GetComponent<ObjectInfo>().ut == UnitTypes.Settler

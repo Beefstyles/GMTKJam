@@ -9,6 +9,9 @@ public class OutpostHandler : MonoBehaviour {
     HexGrid hexGrid;
     public int NumberOfActionsRemaining;
     private int maxActions;
+    public Transform SpawnLocation;
+    public int CostOfMiner;
+    public GameObject Miner;
 
     void Start()
     {
@@ -20,5 +23,13 @@ public class OutpostHandler : MonoBehaviour {
     private void SetHexCoords()
     {
         hexCoords = hexGrid.ReturnHexCoords(transform.position);
+    }
+
+    public void SpawnMiner()
+    {
+        if(gc.NumberOfResources >= CostOfMiner)
+        {
+            Instantiate(Miner, SpawnLocation.position, Quaternion.identity);
+        }
     }
 }
