@@ -10,7 +10,7 @@ public class PlayerInput : MonoBehaviour
     MineHandler mh;
     OutpostHandler oh;
     private bool helpPressed;
-    public GameObject HelpScreen;
+    public GameObject HelpScreen, GameOnScreen;
 
     void Start()
     {
@@ -28,7 +28,15 @@ public class PlayerInput : MonoBehaviour
         {
             if (helpPressed)
             {
-
+                helpPressed = false;
+                HelpScreen.SetActive(false);
+                GameOnScreen.SetActive(true);
+            }
+            else
+            {
+                helpPressed = true;
+                HelpScreen.SetActive(true);
+                GameOnScreen.SetActive(false);
             }
 
         }

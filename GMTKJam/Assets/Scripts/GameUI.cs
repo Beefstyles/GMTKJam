@@ -97,9 +97,9 @@ public class GameUI : MonoBehaviour {
                 BuildingInfo.SetActive(false);
                 UnitInfo.SetActive(false);
                 OutpostInfo.SetActive(false);
-                if (ActionsRemaining.text != gc.SelectedObject.GetComponent<MineHandler>().NumberOfActionsRemaining.ToString())
+                if (ActionsRemaining.text != "")
                 {
-                    ActionsRemaining.text = gc.SelectedObject.GetComponent<MineHandler>().NumberOfActionsRemaining.ToString();
+                    ActionsRemaining.text = "";
                 }
                 DisplayMineInfo(gc.SelectedObject.GetComponent<MineHandler>().NumberOfResourcesToAdd, gc.SelectedObject.GetComponent<MineHandler>().UpgradeCost);
             }
@@ -182,7 +182,7 @@ public class GameUI : MonoBehaviour {
 
     public void DisplayMineInfo(int numberOfResourcesAdded, int upgradeCost)
     {
-        NumberResources.text = numberOfResourcesAdded.ToString();
+        MineResourceAbility.text = numberOfResourcesAdded.ToString();
         MineUpgradeCost.text = upgradeCost.ToString();
     }
 

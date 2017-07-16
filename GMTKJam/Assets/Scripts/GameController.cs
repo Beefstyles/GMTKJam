@@ -152,7 +152,6 @@ public class GameController : MonoBehaviour {
         }
     }
 
-
     public void NextTurn()
     {
         TurnNumber++;
