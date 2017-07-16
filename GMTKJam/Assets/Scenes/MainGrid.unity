@@ -949,8 +949,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 414a0fc06528949a0baff4f719b04a4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 10
-  height: 10
+  width: 50
+  height: 50
   defaultColour: {r: 1, g: 1, b: 1, a: 1}
   touchedColour: {r: 1, g: 0, b: 1, a: 1}
   cellPrefab: {fileID: 11422220, guid: 94c2312396697489abc866a188f80152, type: 2}
@@ -5336,7 +5336,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4182316240852208, guid: 7c4d7cfa14bd2b847bf8e6c26484de8d, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 3.48
+      value: 3.4039998
       objectReference: {fileID: 0}
     - target: {fileID: 4182316240852208, guid: 7c4d7cfa14bd2b847bf8e6c26484de8d, type: 2}
       propertyPath: m_LocalPosition.y

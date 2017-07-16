@@ -28,9 +28,9 @@ public class CameraDrag : MonoBehaviour {
             float v = VerticalSpeed * Input.GetAxis("Mouse X");
             transform.Translate(v, h, 0);
             cameraXPosition = Camera.main.transform.position.x;
-            cameraXPosition = Mathf.Clamp(cameraXPosition, 0, 150);
+            cameraXPosition = Mathf.Clamp(cameraXPosition, 0, 800);
             cameraZPosition = Camera.main.transform.position.z;
-            cameraZPosition = Mathf.Clamp(cameraZPosition, 0, 150);
+            cameraZPosition = Mathf.Clamp(cameraZPosition, 0, 800);
             Camera.main.transform.position = new Vector3(cameraXPosition, Camera.main.transform.position.y, cameraZPosition);
         }
 

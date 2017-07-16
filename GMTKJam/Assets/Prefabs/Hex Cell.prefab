@@ -43,6 +43,8 @@ MonoBehaviour:
   coordinates:
     x: 0
     z: 0
+  EnemyPrefab: {fileID: 1373829233743038, guid: 7c4d7cfa14bd2b847bf8e6c26484de8d,
+    type: 2}
   colour: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1001 &100100000
 Prefab:

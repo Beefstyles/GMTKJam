@@ -5,6 +5,7 @@ using UnityEngine;
 public class HandleElection : MonoBehaviour {
 
     ElectionUI electionUI;
+    HexCell[] hexCells;
 
     void Start()
     {
@@ -13,5 +14,10 @@ public class HandleElection : MonoBehaviour {
 	public void CheckElection()
     {
         electionUI.SetElectionScreen();
+        hexCells = FindObjectsOfType<HexCell>();
+        foreach (var hexcell in hexCells)
+        {
+            hexcell.SpawnRandomEnemy();
+        }
     }
 }
