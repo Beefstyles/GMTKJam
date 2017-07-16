@@ -58,16 +58,16 @@ public class GameUI : MonoBehaviour {
             {
                 if (!BuildingInfo.activeSelf)
                 {
-                    BuildingInfo.SetActive(true);
-                    UnitInfo.SetActive(false);
+                    //BuildingInfo.SetActive(true);
+                    //UnitInfo.SetActive(false);
                 }
             }
             else
             {
                 if (!UnitInfo.activeSelf)
                 {
-                    BuildingInfo.SetActive(false);
-                    UnitInfo.SetActive(true);
+                    //BuildingInfo.SetActive(false);
+                    //UnitInfo.SetActive(true);
                 }
             }
     }
@@ -114,7 +114,9 @@ public class GameUI : MonoBehaviour {
                     ActionsRemaining.text = gc.SelectedObject.GetComponent<OutpostHandler>().NumberOfActionsRemaining.ToString();
                 }
             }
-            else
+            else if (gc.SelectedObject.GetComponent<ObjectInfo>().ut == UnitTypes.Soldier 
+                || gc.SelectedObject.GetComponent<ObjectInfo>().ut == UnitTypes.Settler
+                || gc.SelectedObject.GetComponent<ObjectInfo>().ut == UnitTypes.Miner)
             {
                 MineInfo.SetActive(false);
                 BuildingInfo.SetActive(false);
