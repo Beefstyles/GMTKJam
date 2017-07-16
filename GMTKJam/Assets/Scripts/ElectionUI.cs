@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ElectionUI : MonoBehaviour {
 
-    public Text ElectionText, ElectionResult, ElectionSwing;
+    public Text ElectionText, ElectionNumber, ElectionResult, ElectionSwing;
     PoliticsTracker pt;
     public GameObject ElectionScreen, GameOnScreen;
     public Button ContinueOrRestartBtn;
@@ -22,7 +22,8 @@ public class ElectionUI : MonoBehaviour {
         GameOnScreen.SetActive(false);
         ElectionResult.text = pt.ElectionResult.ToString();
         ElectionSwing.text = pt.ElectionResult.ToString();
-        if(pt.ElectionResult >= 50)
+        ElectionNumber.text = pt.currentElectionNumber.ToString();
+        if (pt.ElectionResult >= 50)
         {
             ElectionText.text = "You survive to rule for another election cycle";
             electionWon = true;

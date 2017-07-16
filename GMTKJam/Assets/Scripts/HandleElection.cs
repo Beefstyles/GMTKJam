@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class HandleElection : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    ElectionUI electionUI;
+
+    void Start()
+    {
+        electionUI = FindObjectOfType<ElectionUI>();
+    }
+	public void CheckElection()
+    {
+        electionUI.SetElectionScreen();
+    }
 }
