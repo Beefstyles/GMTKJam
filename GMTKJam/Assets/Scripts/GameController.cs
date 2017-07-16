@@ -131,5 +131,21 @@ public class GameController : MonoBehaviour {
             unit.ResetOnTurn();
         }
     }
-     
+
+    public void UpdateSelectedUnit()
+    {
+        if(SelectedObject != null)
+        {
+            SelectedObject.GetComponent<UnitBehaviour>().HandleUpgrade();
+        }
+    }
+
+    public void PerformActionUnit()
+    {
+        if (SelectedObject != null)
+        {
+            SelectedObject.GetComponent<UnitBehaviour>().HandleAction();
+        }
+    }
+
 }

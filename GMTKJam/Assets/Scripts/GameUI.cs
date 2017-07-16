@@ -8,7 +8,7 @@ public class GameUI : MonoBehaviour {
     public Text ObjectType, MessageText, ActionsRemaining, CostToUpgrade, TurnNumber, NumberResources, 
         PercentApprovalWH, PercentApprovalPK, PercentApprovalBalance,
         PercentWH, PercentPK, PercentBalance;
-    HexGrid hexGrid;
+
     public GameObject BuildingInfo, UnitInfo;
     public GameObject SelectedObjectWindow;
     GameController gc;
@@ -16,7 +16,6 @@ public class GameUI : MonoBehaviour {
 
 	void Start ()
     {
-        hexGrid = FindObjectOfType<HexGrid>();
         gc = FindObjectOfType<GameController>();
         pt = FindObjectOfType<PoliticsTracker>();
     }
@@ -93,6 +92,10 @@ public class GameUI : MonoBehaviour {
                 if (ActionsRemaining.text != gc.SelectedObject.GetComponent<UnitBehaviour>().NumberOfActions.ToString())
                 {
                     ActionsRemaining.text = gc.SelectedObject.GetComponent<UnitBehaviour>().NumberOfActions.ToString();
+                }
+                if (CostToUpgrade.text != gc.SelectedObject.GetComponent<UnitBehaviour>().CostToUpgrade.ToString())
+                {
+                    CostToUpgrade.text = gc.SelectedObject.GetComponent<UnitBehaviour>().CostToUpgrade.ToString();
                 }
             }
         }
