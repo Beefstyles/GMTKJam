@@ -7,6 +7,7 @@ public class HexCell : MonoBehaviour {
     public GameObject EnemyPrefab;
 	public Color colour;
     private UnitTypes targetUT;
+    
 
     void Start()
     {
@@ -19,7 +20,11 @@ public class HexCell : MonoBehaviour {
             int chanceToSpawnEnemy = Random.Range(0, 10);
             if(chanceToSpawnEnemy >= 9)
             {
-                Instantiate(EnemyPrefab, transform.position, Quaternion.identity);
+                //1, -1, 0) is spawn point
+                if(coordinates.ToString() != "(1, -1, 0)")
+                {
+                    Instantiate(EnemyPrefab, transform.position, Quaternion.identity);
+                }
             }
         }
     }

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ElectionUI : MonoBehaviour {
 
@@ -12,6 +13,7 @@ public class ElectionUI : MonoBehaviour {
     public Button ContinueOrRestartBtn;
     private bool electionWon;
     private decimal electionSwing;
+
 
 
     void Start()
@@ -60,14 +62,14 @@ public class ElectionUI : MonoBehaviour {
             GameOnScreen.SetActive(true);
             GameOnObjects.SetActive(true);
             pt.currentElectionNumber++;
-            pt.AlterPercentApproval(UnityEngine.Random.Range(-3, 2), PoliticsParty.Balance);
-            pt.AlterPercentApproval(UnityEngine.Random.Range(-3, 2), PoliticsParty.Peacenik);
-            pt.AlterPercentApproval(UnityEngine.Random.Range(-3, 2), PoliticsParty.Warhawk);
+            pt.AlterPercentApproval(UnityEngine.Random.Range(-10, 2), PoliticsParty.Balance);
+            pt.AlterPercentApproval(UnityEngine.Random.Range(-10, 2), PoliticsParty.Peacenik);
+            pt.AlterPercentApproval(UnityEngine.Random.Range(-10, 2), PoliticsParty.Warhawk);
             pt.PreviousElectionResult = pt.ElectionResult;
         }
         else
         {
-            Debug.Log("Restart");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 }

@@ -134,12 +134,19 @@ public class HexGrid : MonoBehaviour {
                             switch (targetUT)
                             {
                                 case UnitTypes.Enemy:
-                                    gc.StartCoroutine("RefreshUnitArray");
-                                    gc.CheckDeathCoords(touchedCellCoords);
-                                    StartCoroutine(gameUI.SetMessage("Destroyed enemy"));
-                                    gc.SelectedObject.GetComponent<UnitBehaviour>().NumberOfActions--;
-                                    gc.NumberOfResources += Random.Range(2, 10);
-                                    attackNoise.Play();
+                                    if(gc.SelectedObject.GetComponent<ObjectInfo>().ut == UnitTypes.Soldier)
+                                    {
+                                        gc.StartCoroutine("RefreshUnitArray");
+                                        gc.CheckDeathCoords(touchedCellCoords);
+                                        StartCoroutine(gameUI.SetMessage("Destroyed enemy"));
+                                        gc.SelectedObject.GetComponent<UnitBehaviour>().NumberOfActions--;
+                                        gc.NumberOfResources += Random.Range(2, 10);
+                                        attackNoise.Play();
+                                    }
+                                    else
+                                    {
+                                        StartCoroutine(gameUI.SetMessage("Only soldier can attack"));
+                                    }
                                     break;
                                 default:
                                     StartCoroutine(gameUI.SetMessage("Cannot move here"));

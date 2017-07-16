@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PlayerInput : MonoBehaviour
 {
 
@@ -20,6 +21,7 @@ public class PlayerInput : MonoBehaviour
     {
         Help();
         HandleInput();
+        CheckForExit();
     }
 
     void Help()
@@ -39,6 +41,14 @@ public class PlayerInput : MonoBehaviour
                 GameOnScreen.SetActive(false);
             }
 
+        }
+    }
+
+    void CheckForExit()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
         }
     }
     void HandleInput()

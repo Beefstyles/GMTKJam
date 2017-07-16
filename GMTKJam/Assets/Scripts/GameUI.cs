@@ -186,7 +186,7 @@ public class GameUI : MonoBehaviour {
     public void DisplayMineInfo(int numberOfResourcesAdded, int upgradeCost)
     {
         MineResourceAbility.text = numberOfResourcesAdded.ToString();
-        MineUpgradeCost.text = upgradeCost.ToString();
+        //MineUpgradeCost.text = upgradeCost.ToString();
     }
 
     public void DisplayOutpostInfo()
