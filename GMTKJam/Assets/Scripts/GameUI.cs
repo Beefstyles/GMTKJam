@@ -124,10 +124,8 @@ public class GameUI : MonoBehaviour {
                 {
                     ActionsRemaining.text = gc.SelectedObject.GetComponent<UnitBehaviour>().NumberOfActions.ToString();
                 }
-                if (CostToUpgrade.text != gc.SelectedObject.GetComponent<UnitBehaviour>().CostToUpgrade.ToString())
-                {
+
                     CostToUpgrade.text = gc.SelectedObject.GetComponent<UnitBehaviour>().CostToUpgrade.ToString();
-                }
                 if (CostForAction.text != gc.SelectedObject.GetComponent<UnitBehaviour>().CostForAction.ToString())
                 {
                     CostForAction.text = gc.SelectedObject.GetComponent<UnitBehaviour>().CostForAction.ToString();

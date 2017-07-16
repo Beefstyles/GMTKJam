@@ -190,8 +190,6 @@ MonoBehaviour:
   PercentWH: 10
   PercentPK: 10
   PercentBalance: 80
-  ElectionResult: 0
-  PreviousElectionResult: 0
   currentElectionNumber: 0
 --- !u!114 &19188470
 MonoBehaviour:
@@ -2407,7 +2405,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -751.68, y: 136}
+  m_AnchoredPosition: {x: -751.68, y: 29}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &605460294
@@ -4156,7 +4154,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Soldier
+  m_Text: Soldier - 10
 --- !u!222 &1387248917
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4926,9 +4924,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15bfcad3b8bcb6e46bb5c750f0382eda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CostOfSoldier: 0
-  CostOfMiner: 0
-  CostOfSettler: 0
+  CostOfSoldier: 10
+  CostOfMiner: 10
+  CostOfSettler: 20
 --- !u!4 &1618523810
 Transform:
   m_ObjectHideFlags: 0

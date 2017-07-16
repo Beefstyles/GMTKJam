@@ -20,7 +20,7 @@ public class BaseActionController : MonoBehaviour {
     {
         if (bc.NumberOfActionsRemaining > 0)
         {
-            if (CostOfSoldier >= gc.NumberOfResources)
+            if (CostOfSoldier <= gc.NumberOfResources)
             {
                 gc.NumberOfResources -= CostOfSoldier;
                 gc.ObjectSpawner(gc.SoldierObject, gc.ObjectSpawnLocation.position);
@@ -40,7 +40,7 @@ public class BaseActionController : MonoBehaviour {
     {
         if (bc.NumberOfActionsRemaining > 0)
         {
-            if (CostOfMiner >= gc.NumberOfResources)
+            if (CostOfMiner <= gc.NumberOfResources)
             {
                 
                 gc.ObjectSpawner(gc.MinerObject, gc.ObjectSpawnLocation.position);
@@ -59,7 +59,7 @@ public class BaseActionController : MonoBehaviour {
     {
         if (bc.NumberOfActionsRemaining > 0)
         {
-            if (CostOfSettler >= gc.NumberOfResources)
+            if (CostOfSettler <= gc.NumberOfResources)
             {
                 
                 gc.ObjectSpawner(gc.SettlerObject, gc.ObjectSpawnLocation.position);

@@ -64,6 +64,7 @@ public class GameController : MonoBehaviour {
 
     void Start ()
     {
+        numberOfResources = 60;
         pt = FindObjectOfType<PoliticsTracker>();
         baseActionController = FindObjectOfType<BaseActionController>();
         StartCoroutine("RefreshUnitArray");

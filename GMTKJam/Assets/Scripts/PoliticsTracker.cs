@@ -66,6 +66,5 @@ public class PoliticsTracker : MonoBehaviour {
         decimal VotedBalance = (decimal)PercentApprovalBalance / 100 * PercentBalance;
 
         ElectionResult = (VotedWH + VotedPK + VotedBalance); 
-        Debug.Log(VotedWH);
     }
 }

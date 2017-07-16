@@ -31,6 +31,8 @@ public class UnitBehaviour : MonoBehaviour {
         mr.material = ObjectNotSelected;
         SetHexCoords();
         AddLocationToDict();
+        DetermineCostForAction();
+        DetermineCostForUpgrade();
     }
 
     void DetermineCostForAction()
@@ -46,6 +48,33 @@ public class UnitBehaviour : MonoBehaviour {
                 CostForAction = 10;
                 break;
             case UnitTypes.Base:
+                break;
+            case UnitTypes.Enemy:
+                break;
+            case UnitTypes.Outpost:
+                break;
+            case UnitTypes.Mine:
+                break;
+            default:
+                break;
+        }
+    }
+
+    void DetermineCostForUpgrade()
+    {
+        switch (ut)
+        {
+            case UnitTypes.Soldier:
+                CostToUpgrade = 10;
+                break;
+            case UnitTypes.Miner:
+                CostToUpgrade = 5;
+                break;
+            case UnitTypes.Settler:
+                CostToUpgrade = 5;
+                break;
+            case UnitTypes.Base:
+                CostToUpgrade = 20;
                 break;
             case UnitTypes.Enemy:
                 break;
@@ -138,6 +167,7 @@ public class UnitBehaviour : MonoBehaviour {
     public void ResetOnTurn()
     {
         NumberOfActions = maxActions;
+        HandleEnemyMovement();
     }
 
     public void HandleUpgrade()

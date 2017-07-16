@@ -64,7 +64,6 @@ public class ElectionUI : MonoBehaviour {
             pt.AlterPercentApproval(UnityEngine.Random.Range(-3, 2), PoliticsParty.Peacenik);
             pt.AlterPercentApproval(UnityEngine.Random.Range(-3, 2), PoliticsParty.Warhawk);
             pt.PreviousElectionResult = pt.ElectionResult;
-
         }
         else
         {

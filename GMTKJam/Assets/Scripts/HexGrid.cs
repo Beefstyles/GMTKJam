@@ -146,6 +146,7 @@ public class HexGrid : MonoBehaviour {
                         {
                             gc.SelectedObject.transform.position = new Vector3(TouchedCellPositon.x, gc.SelectedObject.transform.position.y, TouchedCellPositon.z);
                             gc.SelectedObject.GetComponent<UnitBehaviour>().FindCellLocation();
+                            gc.NumberOfResources += Random.Range(2, 10);
                             gc.SelectedObject.GetComponent<UnitBehaviour>().NumberOfActions--;
                         }
                     }
