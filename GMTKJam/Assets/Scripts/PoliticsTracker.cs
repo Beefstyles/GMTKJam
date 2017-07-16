@@ -65,22 +65,25 @@ public class PoliticsTracker : MonoBehaviour {
                 break;
         }
     }
-	void ShuffleProportions ()
+	public void ShuffleProportions ()
     {
         int WarhawkChange = Random.Range(-5, 5);
+        Debug.Log("WarhawkChange" + WarhawkChange);
         int PeacenikChange = Random.Range(-5, 5);
 
         if (PercentWH > 0 && PercentWH < 100)
         {
-            WarhawkChange += WarhawkChange;
+            PercentWH += WarhawkChange;
+            Debug.Log("Actually does something");
         }
 
         if (PercentPK > 0 && PercentPK < 100)
         {
-            PeacenikChange += PeacenikChange;
+            PercentPK += PeacenikChange;
         }
 
         PercentBalance = 100 - PercentWH - PercentPK;
 
+        
     }
 }
