@@ -73,6 +73,7 @@
      <Compile Include="Assets\Scripts\PoliticsTracker.cs" />
      <Compile Include="Assets\Scripts\UnitBehaviour.cs" />
      <Compile Include="Assets\Scripts\UnitTypes.cs" />
+     <None Include="Assets\Fonts\visitor.txt" />
      <None Include="Assets\Shaders\VertexColors.shader" />
      <None Include="Assets\Shaders\UIText.shader" />
  <Reference Include="UnityEngine.UI">

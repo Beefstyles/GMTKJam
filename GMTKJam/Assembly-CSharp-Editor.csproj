@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Editor\HexCoordinatesDrawer.cs" />
+     <None Include="Assets\Fonts\visitor.txt" />
      <None Include="Assets\Shaders\VertexColors.shader" />
      <None Include="Assets\Shaders\UIText.shader" />
  <Reference Include="UnityEditor.Advertisements">
