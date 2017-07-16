@@ -158,6 +158,7 @@ public class GameController : MonoBehaviour {
         }
         if(TurnNumber % 10 == 0)
         {
+            pt.CalculateElectionResult();
             electionHandler.CheckElection();
         }
     }

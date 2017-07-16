@@ -61,6 +61,11 @@ public class PoliticsTracker : MonoBehaviour {
 
     public void CalculateElectionResult()
     {
-        ElectionResult = (PercentApprovalWH / 100 * PercentWH) + (PercentApprovalPK / 100 * PercentPK) + (PercentApprovalBalance / 100 * PercentBalance);
+        decimal VotedWH = (decimal)PercentApprovalWH / 100 * PercentWH;
+        decimal VotedPK = (decimal)PercentApprovalPK / 100 * PercentPK;
+        decimal VotedBalance = (decimal)PercentApprovalBalance / 100 * PercentBalance;
+
+        ElectionResult = (int)(VotedWH + VotedPK + VotedBalance); 
+        Debug.Log(VotedWH);
     }
 }
