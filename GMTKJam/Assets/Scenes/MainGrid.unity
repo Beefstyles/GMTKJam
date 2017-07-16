@@ -892,7 +892,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &117615667
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3853,9 +3853,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cfbdfc997b8f6e4cbbfe486d181e618, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HelpScreen: {fileID: 0}
-  GameOnScreen: {fileID: 0}
-  ElectionOnScreen: {fileID: 0}
+  HelpScreen: {fileID: 117615666}
+  GameOnScreen: {fileID: 1823479489}
 --- !u!4 &820749254
 Transform:
   m_ObjectHideFlags: 0
@@ -6373,7 +6372,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1823479490
 RectTransform:
   m_ObjectHideFlags: 0
