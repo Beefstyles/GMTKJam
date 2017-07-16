@@ -119,6 +119,7 @@ GameObject:
   - component: {fileID: 19188466}
   - component: {fileID: 19188468}
   - component: {fileID: 19188469}
+  - component: {fileID: 19188470}
   m_Layer: 0
   m_Name: GameControl
   m_TagString: Untagged
@@ -188,6 +189,24 @@ MonoBehaviour:
   PercentWH: 10
   PercentPK: 10
   PercentBalance: 80
+  ElectionResult: 0
+  PreviousElectionResult: 0
+  currentElectionNumber: 0
+--- !u!114 &19188470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 19188465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bac5cb6147b28246b67ff470ac86aa8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ElectionResult: {fileID: 0}
+  ElectionSwing: {fileID: 0}
+  ElectionScreen: {fileID: 0}
+  GameOnScreen: {fileID: 0}
 --- !u!1 &35395548
 GameObject:
   m_ObjectHideFlags: 0
@@ -4102,7 +4121,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -127.49996, y: 407.19986}
+  m_AnchoredPosition: {x: -127.49997, y: 407.19986}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1423140031
@@ -4529,7 +4548,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 2100000, guid: aa07a79610c77d74fbac9fcaf687ccca, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:

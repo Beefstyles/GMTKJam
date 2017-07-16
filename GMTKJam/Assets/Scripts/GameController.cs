@@ -22,6 +22,7 @@ public class GameController : MonoBehaviour {
     BaseController bc;
     PoliticsTracker pt;
     public GameObject SelectedObject;
+    HandleElection electionHandler;
 
     public bool IsBaseSelected
     {
@@ -69,6 +70,7 @@ public class GameController : MonoBehaviour {
         hexGrid = FindObjectOfType<HexGrid>();
         gameUI = FindObjectOfType<GameUI>();
         bc = FindObjectOfType<BaseController>();
+        electionHandler = FindObjectOfType<HandleElection>();
     }
 
     public void DeselectAllUnits()
@@ -153,6 +155,10 @@ public class GameController : MonoBehaviour {
         foreach (var unit in unitArray)
         {
             unit.ResetOnTurn();
+        }
+        if(TurnNumber % 10 == 0)
+        {
+
         }
     }
 
