@@ -7,6 +7,8 @@ public class OutpostHandler : MonoBehaviour {
     GameController gc;
     HexCoordinates hexCoords;
     HexGrid hexGrid;
+    public int NumberOfActionsRemaining;
+    private int maxActions;
 
     void Start()
     {

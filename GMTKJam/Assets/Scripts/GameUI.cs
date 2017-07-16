@@ -87,6 +87,20 @@ public class GameUI : MonoBehaviour {
                     ActionsRemaining.text = gc.SelectedObject.GetComponent<BaseController>().NumberOfActionsRemaining.ToString();
                 }
             }
+            else if (gc.SelectedObject.GetComponent<ObjectInfo>().ut == UnitTypes.Mine)
+            {
+                if (ActionsRemaining.text != gc.SelectedObject.GetComponent<MineHandler>().NumberOfActionsRemaining.ToString())
+                {
+                    ActionsRemaining.text = gc.SelectedObject.GetComponent<MineHandler>().NumberOfActionsRemaining.ToString();
+                }
+            }
+            else if (gc.SelectedObject.GetComponent<ObjectInfo>().ut == UnitTypes.Outpost)
+            {
+                if (ActionsRemaining.text != gc.SelectedObject.GetComponent<OutpostHandler>().NumberOfActionsRemaining.ToString())
+                {
+                    ActionsRemaining.text = gc.SelectedObject.GetComponent<OutpostHandler>().NumberOfActionsRemaining.ToString();
+                }
+            }
             else
             {
                 if (ActionsRemaining.text != gc.SelectedObject.GetComponent<UnitBehaviour>().NumberOfActions.ToString())
@@ -152,7 +166,18 @@ public class GameUI : MonoBehaviour {
     public void DisplayMineInfo(int numberOfResourcesAdded, int upgradeCost)
     {
         MineInfo.SetActive(true);
+        BuildingInfo.SetActive(false);
+        UnitInfo.SetActive(false);
+        OutpostInfo.SetActive(false);
         NumberResources.text = numberOfResourcesAdded.ToString();
         MineUpgradeCost.text = upgradeCost.ToString();
+    }
+
+    public void DisplayOutpostInfo()
+    {
+        MineInfo.SetActive(false);
+        BuildingInfo.SetActive(false);
+        UnitInfo.SetActive(false);
+        OutpostInfo.SetActive(true);
     }
 }

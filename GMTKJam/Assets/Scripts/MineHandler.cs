@@ -6,6 +6,8 @@ public class MineHandler : MonoBehaviour {
 
     private int NumberOfResourcesToAdd;
     private int UpgradeCost;
+    public int NumberOfActionsRemaining;
+    private int maxActions;
     GameController gc;
     HexCoordinates hexCoords;
     HexGrid hexGrid;
