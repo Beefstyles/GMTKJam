@@ -168,7 +168,8 @@ public class UnitBehaviour : MonoBehaviour {
     {
         NumberOfActions++;
         NumberOfActions = Mathf.Clamp(NumberOfActions, maxActions, maxActions);
-        HandleEnemyMovement();
+        gc.RefreshUnitArray();
+        //HandleEnemyMovement();
     }
 
     public void HandleUpgrade()
