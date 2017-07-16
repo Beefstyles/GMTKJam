@@ -64,6 +64,7 @@
      <Compile Include="Assets\Scripts\HexMetrics.cs" />
      <Compile Include="Assets\Scripts\MineHandler.cs" />
      <Compile Include="Assets\Scripts\ObjectInfo.cs" />
+     <Compile Include="Assets\Scripts\OutpostHandler.cs" />
      <Compile Include="Assets\Scripts\OverallHexCoordsDict.cs" />
      <Compile Include="Assets\Scripts\PlayerInput.cs" />
      <Compile Include="Assets\Scripts\PoliticsParty.cs" />

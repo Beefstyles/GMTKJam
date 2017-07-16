@@ -196,7 +196,10 @@ public class UnitBehaviour : MonoBehaviour {
 
     private void HandleObjectSpawn()
     {
-        DestroySelf(hexCoords);
+        RemoveLocationFromDict();
+        Destroy(this.gameObject);
+
+
     }
 
 }

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PlayerBase
   - Unit
+  - AncBuilding
   layers:
   - Default
   - TransparentFX
