@@ -16,12 +16,14 @@ public class UnitBehaviour : MonoBehaviour {
     HexGrid hexGrid;
     GameController gc;
     GameUI gameUI;
+    PoliticsTracker pt;
  
     void Start()
     {
         ut = GetComponent<ObjectInfo>().ut;
         hexGrid = FindObjectOfType<HexGrid>();
         gameUI = FindObjectOfType<GameUI>();
+        pt = FindObjectOfType<PoliticsTracker>();
 
         gc = FindObjectOfType<GameController>();
         mr = GetComponent<MeshRenderer>();
@@ -120,8 +122,11 @@ public class UnitBehaviour : MonoBehaviour {
             switch (gc.SelectedObject.GetComponent<ObjectInfo>().ut)
             {
                 case (UnitTypes.Miner):
+                    pt.AlterPercentApproval(1, PoliticsParty.Peacenik);
                     break;
                 case (UnitTypes.Soldier):
+                    pt.AlterPercentApproval(-1, PoliticsParty.Peacenik);
+                    pt.AlterPercentApproval(1, PoliticsParty.Peacenik);
                     break;
                 case (UnitTypes.Settler):
                     break;

@@ -12,26 +12,75 @@ public class PoliticsTracker : MonoBehaviour {
         switch (party)
         {
             case PoliticsParty.Warhawk:
-                if(PercentApprovalWH <= 100)
+                if(PercentApprovalWH <= 100 && PercentApprovalWH >= 0)
                 {
-                    PercentApprovalWH += percentChange;
+                    if((PercentApprovalWH + percentChange) > 100)
+                    {
+                        PercentApprovalWH = 100;
+                    }
+                    else if ((PercentApprovalWH + percentChange) < 0)
+                    {
+                        PercentApprovalWH = 0;
+                    }
+                    else
+                    {
+                        PercentApprovalWH += percentChange;
+                    }
+                    
                 }
                 break;
             case PoliticsParty.Peacenik:
-                if (PercentApprovalPK <= 100)
+                if (PercentApprovalPK <= 100 && PercentApprovalPK >= 0)
                 {
-                    PercentApprovalPK += percentChange;
+                    if ((PercentApprovalPK + percentChange) > 100)
+                    {
+                        PercentApprovalPK = 100;
+                    }
+                    else if ((PercentApprovalPK + percentChange) < 0)
+                    {
+                        PercentApprovalPK = 0;
+                    }
+                    else
+                    {
+                        PercentApprovalPK += percentChange;
+                    }
                 }
                 break;
             case PoliticsParty.Balance:
-                if (PercentApprovalBalance <= 100)
+                if (PercentApprovalBalance <= 100 && PercentApprovalBalance >= 0)
                 {
-                    PercentApprovalBalance += percentChange;
+                    if ((PercentApprovalBalance + percentChange) > 100)
+                    {
+                        PercentApprovalBalance = 100;
+                    }
+                    else if ((PercentApprovalBalance + percentChange) < 0)
+                    {
+                        PercentApprovalBalance = 0;
+                    }
+                    else
+                    {
+                        PercentApprovalBalance += percentChange;
+                    }
                 }
                 break;
         }
     }
-	void Update () {
-		
-	}
+	void ShuffleProportions ()
+    {
+        int WarhawkChange = Random.Range(-5, 5);
+        int PeacenikChange = Random.Range(-5, 5);
+
+        if (PercentWH > 0 && PercentWH < 100)
+        {
+            WarhawkChange += WarhawkChange;
+        }
+
+        if (PercentPK > 0 && PercentPK < 100)
+        {
+            PeacenikChange += PeacenikChange;
+        }
+
+        PercentBalance = 100 - PercentWH - PercentPK;
+
+    }
 }

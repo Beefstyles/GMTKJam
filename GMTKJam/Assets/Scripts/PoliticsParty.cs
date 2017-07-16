@@ -4,5 +4,5 @@ using UnityEngine;
 
 public enum PoliticsParty {
 
-    Warhawk, Peacenik, Balance;
+    Warhawk, Peacenik, Balance
 }
