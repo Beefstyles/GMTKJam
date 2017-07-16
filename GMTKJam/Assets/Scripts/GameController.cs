@@ -132,7 +132,7 @@ public class GameController : MonoBehaviour {
         }
     }
 
-    public void UpdateSelectedUnit()
+    public void UpgradeSelectedUnit()
     {
         if(SelectedObject != null)
         {
@@ -140,7 +140,7 @@ public class GameController : MonoBehaviour {
         }
     }
 
-    public void PerformActionUnit()
+    public void PerformActionSelectedUnit()
     {
         if (SelectedObject != null)
         {

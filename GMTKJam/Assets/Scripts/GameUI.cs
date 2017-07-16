@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class GameUI : MonoBehaviour {
 
-    public Text ObjectType, MessageText, ActionsRemaining, CostToUpgrade, TurnNumber, NumberResources, 
+    public Text ObjectType, MessageText, ActionsRemaining, CostToUpgrade, CostForAction, TurnNumber, NumberResources, 
         PercentApprovalWH, PercentApprovalPK, PercentApprovalBalance,
         PercentWH, PercentPK, PercentBalance;
 
@@ -88,7 +88,6 @@ public class GameUI : MonoBehaviour {
             }
             else
             {
-
                 if (ActionsRemaining.text != gc.SelectedObject.GetComponent<UnitBehaviour>().NumberOfActions.ToString())
                 {
                     ActionsRemaining.text = gc.SelectedObject.GetComponent<UnitBehaviour>().NumberOfActions.ToString();
@@ -96,6 +95,10 @@ public class GameUI : MonoBehaviour {
                 if (CostToUpgrade.text != gc.SelectedObject.GetComponent<UnitBehaviour>().CostToUpgrade.ToString())
                 {
                     CostToUpgrade.text = gc.SelectedObject.GetComponent<UnitBehaviour>().CostToUpgrade.ToString();
+                }
+                if (CostForAction.text != gc.SelectedObject.GetComponent<UnitBehaviour>().CostForAction.ToString())
+                {
+                    CostForAction.text = gc.SelectedObject.GetComponent<UnitBehaviour>().CostForAction.ToString();
                 }
             }
         }

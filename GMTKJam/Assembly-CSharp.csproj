@@ -65,6 +65,7 @@
      <Compile Include="Assets\Scripts\ObjectInfo.cs" />
      <Compile Include="Assets\Scripts\OverallHexCoordsDict.cs" />
      <Compile Include="Assets\Scripts\PlayerInput.cs" />
+     <Compile Include="Assets\Scripts\PoliticsParty.cs" />
      <Compile Include="Assets\Scripts\PoliticsTracker.cs" />
      <Compile Include="Assets\Scripts\UnitBehaviour.cs" />
      <Compile Include="Assets\Scripts\UnitTypes.cs" />
