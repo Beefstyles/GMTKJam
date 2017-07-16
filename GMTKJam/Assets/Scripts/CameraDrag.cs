@@ -40,7 +40,7 @@ public class CameraDrag : MonoBehaviour {
     {
         cameraYPosition = Camera.main.transform.position.y;
         cameraYPosition -= cameraYPosition * Input.GetAxis("Mouse ScrollWheel"); //Zoom in and out
-        cameraYPosition = Mathf.Clamp(cameraYPosition, 50, 100); //Clamps zoom
+        cameraYPosition = Mathf.Clamp(cameraYPosition, 10, 100); //Clamps zoom
         Camera.main.transform.position = new Vector3(Camera.main.transform.position.x, cameraYPosition, Camera.main.transform.position.z);
     }
 

@@ -17,7 +17,7 @@ public class HexCell : MonoBehaviour {
         if (!OverallHexCoordsDict.GameDictionary.TryGetValue(coordinates, out targetUT))
         {
             int chanceToSpawnEnemy = Random.Range(0, 10);
-            if(chanceToSpawnEnemy >= 8)
+            if(chanceToSpawnEnemy >= 9)
             {
                 Instantiate(EnemyPrefab, transform.position, Quaternion.identity);
             }
